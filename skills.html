@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills | CyberPortfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html" class="active">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> SKILLS</div>
+      <h1 class="page-hero-title">My <span class="accent">Arsenal</span></h1>
+      <p class="page-hero-sub">// TOOLS AND KNOWLEDGE IN MY TOOLKIT</p>
+    </div>
+
+    <section>
+
+      <!-- CYBERSECURITY SKILLS -->
+      <div class="skills-category reveal">
+        <h3>CYBERSECURITY</h3>
+        <div class="skills-grid">
+          <!-- ✏️ EDIT: Add/remove/modify skill cards. Format: emoji + name + category -->
+          <div class="skill-card card"><span class="skill-icon">🛡️</span><span class="skill-name">Cyber Security</span><span class="skill-cat">Core Skill</span></div>
+        </div>
+      </div>
+
+      <!-- PROGRAMMING LANGUAGES -->
+      <div class="skills-category reveal">
+        <h3>PROGRAMMING LANGUAGES</h3>
+        <div class="skills-grid">
+          <div class="skill-card card"><span class="skill-icon">🐍</span><span class="skill-name">Python </span><span class="skill-cat">Programming</span></div>
+          <div class="skill-card card"><span class="skill-icon">☕︎</span><span class="skill-name">Java </span><span class="skill-cat">Programming</span></div>
+          <div class="skill-card card"><span class="skill-icon">🌐</span><span class="skill-name">HTML / CSS </span><span class="skill-cat">Web</span></div>
+          <div class="skill-card card"><span class="skill-icon">｡🇯‌🇸‌</span><span class="skill-name">JavaScript </span><span class="skill-cat">Web</span></div>
+          <div class="skill-card card"><span class="skill-icon">C & C++</span><span class="skill-name">C & C++ </span><span class="skill-cat">Programming Basics</span></div>
+          <div class="skill-card card"><span class="skill-icon">🛢️</span><span class="skill-name">SQL </span><span class="skill-cat">Database Basics</span></div>
+        </div>
+      </div>
+
+      <!-- NETWORKING -->
+      <div class="skills-category reveal">
+        <h3>NETWORKING</h3>
+        <div class="skills-grid">
+          <div class="skill-card card"><span class="skill-icon">📡</span><span class="skill-name">TCP/IP </span><span class="skill-cat">Protocol</span></div>
+          <div class="skill-card card"><span class="skill-icon">🏠</span><span class="skill-name">Subnetting </span><span class="skill-cat">IP Addressing</span></div>
+          <div class="skill-card card"><span class="skill-icon">🔒</span><span class="skill-name">VPN / SSL/TLS </span><span class="skill-cat">Encryption</span></div>
+          <div class="skill-card card"><span class="skill-icon">🌍</span><span class="skill-name">DNS / DHCP </span><span class="skill-cat">Services</span></div>
+        </div>
+      </div>
+
+      <!-- SECURITY TOOLS -->
+      <div class="skills-category reveal">
+        <h3>SECURITY TOOLS</h3>
+        <div class="skills-grid">
+          <div class="skill-card card"><span class="skill-icon">🗺️</span><span class="skill-name">Nmap </span><span class="skill-cat">Network Scanner</span></div>
+          <div class="skill-card card"><span class="skill-icon">✈️</span><span class="skill-name">Aircrack-ng </span><span class="skill-cat">Wi-Fi Security</span></div>
+          <div class="skill-card card"><span class="skill-icon">🔑</span><span class="skill-name">Hashcat & John & Hydra </span><span class="skill-cat">Password Tools</span></div>
+        </div>
+      </div>
+
+      <!-- PLATFORMS & CERTS -->
+      <div class="skills-category reveal">
+        <h3>LEARNING PLATFORMS</h3>
+        <div class="skills-grid">
+          <div class="skill-card card"><span class="skill-icon">🏴</span><span class="skill-name">TryHackMe </span><span class="skill-cat">CTF Platform</span></div>
+          <div class="skill-card card"><span class="skill-icon">📦</span><span class="skill-name">HackTheBox </span><span class="skill-cat">CTF Platform</span></div>
+          <div class="skill-card card"><span class="skill-icon">🎓</span><span class="skill-name">MuLearn & Discord </span><span class="skill-cat">Community</span></div>
+          <div class="skill-card card"><span class="skill-icon">☁️</span><span class="skill-name">Coursera </span><span class="skill-cat">Online Courses</span></div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" target="_blank">⌨️</a>
+      <a href="#" target="_blank">💼</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank">💬</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificates | CyberPortfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html" class="active">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> CERTIFICATES</div>
+      <h1 class="page-hero-title">My <span class="accent">Credentials</span></h1>
+      <p class="page-hero-sub">// VERIFIED ACHIEVEMENTS &amp; CERTIFICATIONS</p>
+    </div>
+
+    <section>
+      <div class="certs-grid">
+
+        <!-- CERTIFICATE 1 -->
+        <div class="cert-card card reveal">
+          <div class="cert-image">
+            <img src="{css,js,images\Certificate/cert1.jpg" alt="Certificate 1"/></div>
+          <div class="cert-body">
+            <div class="cert-org">Redteam Hacker Academy</div>
+            <div class="cert-title">Cybersecurity Webinar Participation Certificate</div>
+            <div class="cert-desc">Received a Participation Certificate for attending a Red Team Webinar on Cybersecurity and Ethical Hacking, gaining insights into offensive security techniques and threat assessment.</div>
+            <div class="cert-date">📅 July 2024</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 2 -->
+        <div class="cert-card card reveal reveal-delay-1">
+          <div class="cert-image">
+            <img src="{css,js,images\Certificate/cert2.jpg" alt="Certificate 2">
+          </div>
+          <div class="cert-body">
+            <div class="cert-org">Inovus Labs</div>
+            <div class="cert-title">Hacktoberfest 2024</div>
+            <div class="cert-desc">Actively participated in Hacktoberfest 2024, making meaningful contributions to open-source projects and engaging with developers worldwide.</div>
+            <div class="cert-date">📅 October 2024</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 3 -->
+        <div class="cert-card card reveal reveal-delay-2">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert3.jpg" alt="Certificate 3"></div>
+          <div class="cert-body">
+            <div class="cert-org">Inovus Labs</div>
+            <div class="cert-title">Biznova Participation Certificate</div>
+            <div class="cert-desc">Received a certificate for participating in BIZNOVA by submitting innovative ideas and presenting solutions to real-world problems.</div>
+            <div class="cert-date">📅 February 2025</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 4 -->
+        <div class="cert-card card reveal">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert4.jpg" alt="Certificate 4"></div>
+          <div class="cert-body">
+            <div class="cert-org">Spoken Tutorial, EduPyramids, SINE, IIT Bombay</div>
+            <div class="cert-title">JavaScript Training Completion Certificate</div>
+            <div class="cert-desc">Successfully completed JavaScript training from NPTEL, gaining strong foundational knowledge in JavaScript programming and web development.</div>
+            <div class="cert-date">📅 April 2025</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 5 -->
+        <div class="cert-card card reveal reveal-delay-1">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert5.jpg" alt="Certificate 5"></div>
+          <div class="cert-body">
+            <div class="cert-org">ALPHA INNOVATION</div>
+            <div class="cert-title">CyberSecurity Industrial Training Certificate</div>
+            <div class="cert-desc">Completed Industrial Training in Cybersecurity, developing foundational knowledge in network security, cyber threats, and security best practices.</div>
+            <div class="cert-date">📅 September 2025</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 6 -->
+        <div class="cert-card card reveal reveal-delay-2">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert6.jpg" alt="Certificate 6"></div>
+          <div class="cert-body">
+            <div class="cert-org">ALPHA INNOVATION</div>
+            <div class="cert-title">Cybersecurity Internship Complication Certificatev</div>
+            <div class="cert-desc">Successfully completed a Cybersecurity Internship, gaining practical knowledge in cyber threats, security practices, and digital protection.Successfully completed a Cybersecurity Internship, gaining practical knowledge in cyber threats, security practices, and digital protection.</div>
+            <div class="cert-date">📅 September 2025</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 7 -->
+        <div class="cert-card card reveal">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert7.jpg" alt="Certificate 7"></div>
+          <div class="cert-body">
+            <div class="cert-org">Inovus Labs</div>
+            <div class="cert-title">Python Workshop Certificate</div>
+            <div class="cert-desc">Received a participation certificate for attending a Python Workshop, enhancing knowledge in Python programming and coding practices.</div>
+            <div class="cert-date">📅 September 2025</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 8 — Add your own -->
+        <div class="cert-card card reveal reveal-delay-1">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert8.jpg" alt="Certificate 8">v</div>
+          <div class="cert-body">
+            <div class="cert-org">Wadhwani Foundation</div>
+            <div class="cert-title">Obtain an Appropriate Job - Basic Certification</div>
+            <div class="cert-desc">Earned a Certificate of Completion (Basic) for ‘Obtain an Appropriate Job’, developing essential skills for job searching, career planning, and professional growth.</div>
+            <div class="cert-date">📅 March 2026</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 9 — Add your own -->
+        <div class="cert-card card reveal reveal-delay-1">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert9.jpeg" alt="Certificate 8">v</div>
+          <div class="cert-body">
+            <div class="cert-org">Redteam Hacker Academy</div>
+            <div class="cert-title">Cyber Heist - ALL KERALA CYBERSECURITY BOOTCAMP</div>
+            <div class="cert-desc">This is to certify that the participant has successfully completed the 2-Day Bootcamp titled “Cyber Heist – All Kerala Cybersecurity Bootcamp”. The program focused on key areas of modern cybersecurity, including Deepfake technologies, Open-Source Intelligence (OSINT), Penetration Testing, Distributed Denial-of-Service (DDoS) attacks, and practical exposure to tools such as Flipper Zero. The bootcamp also included hands-on sessions involving real-machine attack simulations in controlled environments, providing participants with practical experience in identifying and mitigating cyber threats.</div>
+            <div class="cert-date">📅 April 2026</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATE 10 — Add your own -->
+        <div class="cert-card card reveal reveal-delay-1">
+          <div class="cert-image"><img src="{css,js,images\Certificate/cert10.png" alt="Certificate 8">v</div>
+          <div class="cert-body">
+            <div class="cert-org">Redteam Hacker Academy</div>
+            <div class="cert-title">Prompt Engineering Masterclass</div>
+            <div class="cert-desc">A Prompt Engineering Masterclass provided by Great Learning, focused on learning how to effectively interact with AI tools like ChatGPT. It covers techniques such as prompt structuring, iterative refinement, and context-based querying to generate accurate and meaningful outputs. This project demonstrates skills in AI interaction, critical thinking, and optimizing prompts for various real-world applications.
+</div>
+            <div class="cert-date">📅 March 2026</div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" target="_blank">⌨️</a>
+      <a href="#" target="_blank">💼</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank">💬</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

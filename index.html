@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | SALVIN SEBASTIAN</title>
+  <meta name="description" content="Cybersecurity student & ethical hacking enthusiast portfolio" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <!-- ░░ LOADING SCREEN ░░ -->
+  <div id="loading-screen">
+    <div class="loading-logo">LOAD<span style="color:var(--neon-cyan)">ING...</span></div>
+    <div class="loading-bar-wrap"><div class="loading-bar"></div></div>
+    <div class="loading-text">INITIALIZING SYSTEM...</div>
+  </div>
+
+  <!-- ░░ BACKGROUND LAYERS ░░ -->
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.35;"></canvas>
+  <div class="scanlines"></div>
+
+  <!-- ░░ CURSOR ░░ -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ░░ SCROLL PROGRESS ░░ -->
+
+  <!-- ░░ NAV ░░ -->
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ░░ PAGE CONTENT ░░ -->
+  <div class="page-wrapper">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content reveal">
+        <div class="hero-tag">STUDENT</div>
+
+        <h1 class="hero-name glitch" data-text="[YOUR NAME]">
+          <!-- ✏️ EDIT: Replace [YOUR NAME] with your actual name -->
+          <span class="highlight">SALVIN</span> SEBASTIAN
+        </h1>
+
+        <p class="hero-subtitle">ETHICAL HACKING ENTHUSIAST</p>
+
+        <p class="hero-bio">
+          <!-- ✏️ EDIT: Replace this with your personal introduction -->
+          Passionate cybersecurity student dedicated to understanding digital threats and building a safer internet.
+          Exploring the intersection of technology, ethics, and security.
+        </p>
+
+        <div class="typing-wrap">
+          <span class="typing-prefix">root@kali:~$</span>
+          <!-- ✏️ EDIT: Add/remove skills in the data-words JSON array -->
+          <span class="typing-text" data-words='["Cybersecurity","Ethical Hacking","Python Programming","Java Programming","Network Scanning","JavaScript","Web Development"]'></span>
+          <span class="typing-cursor"></span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-solid">VIEW PROJECTS</a>
+          <a href="certificates.html" class="btn">CERTIFICATES</a>
+          <a href="contact.html" class="btn">CONTACT ME</a>
+          <!-- ✏️ EDIT: Replace 'resume.pdf' with your actual resume file path -->
+          <a href="assets/resume.pdf" class="btn" download>⬇ DOWNLOAD CV</a>
+        </div>
+      </div>
+
+      <!-- Decorative hex clock -->
+      <div style="position:absolute;bottom:2rem;right:2rem;font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);">
+        SYS: <span id="hex-clock">0x...</span>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section style="padding:2rem 2rem 5rem;">
+      <div style="max-width:1200px;margin:0 auto;">
+        <div class="stats-row">
+          <div class="stat-card card reveal">
+            <!-- ✏️ EDIT: Update data-target values to your actual counts -->
+            <div class="stat-number" data-target="1" data-suffix="+">0+</div>
+            <div class="stat-label">PROJECTS</div>
+          </div>
+          <div class="stat-card card reveal reveal-delay-1">
+            <div class="stat-number" data-target="5" data-suffix="+">0+</div>
+            <div class="stat-label">CERTIFICATES</div>
+          </div>
+          <div class="stat-card card reveal reveal-delay-2">
+            <div class="stat-number" data-target="3" data-suffix="+">0+</div>
+            <div class="stat-label">YEARS LEARNING</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK SKILLS PREVIEW -->
+    <section style="max-width:1200px;margin:0 auto;padding:4rem 2rem;">
+      <div class="section-header reveal">
+        <span class="section-tag">// EXPERTISE</span>
+        <h2 class="section-title">Core <span class="accent">Skills</span></h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="skills-grid">
+        <!-- ✏️ EDIT: Customize or add skill cards freely -->
+        <div class="skill-card card reveal"><span class="skill-icon">🛡️</span><span class="skill-name">Cyber </span><span class="skill-cat">Security</span></div>
+        <div class="skill-card card reveal reveal-delay-1"><span class="skill-icon">🐍</span><span class="skill-name">Python </span><span class="skill-cat">Programming</span></div>
+        <div class="skill-card card reveal reveal-delay-2"><span class="skill-icon">☕︎</span><span class="skill-name">Java </span><span class="skill-cat">Programming</span></div>
+        <div class="skill-card card reveal reveal-delay-3"><span class="skill-icon">｡🇯‌🇸‌</span><span class="skill-name">JavaScript</span></div>
+        <div class="skill-card card reveal"><span class="skill-icon">🌐</span><span class="skill-name">HTML</span></div>
+        <div class="skill-card card reveal reveal-delay-1"><span class="skill-icon">🇨</span><span class="skill-name">C </span><span class="skill-cat">Programming</span></div>
+        <div class="skill-card card reveal reveal-delay-2"><span class="skill-icon">📊</span><span class="skill-name">Feature </span><span class="skill-cat">Engineering</span></div>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem;">
+        <a href="skills.html" class="btn">VIEW ALL SKILLS</a>
+      </div>
+    </section>
+
+  </div><!-- end page-wrapper -->
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer>
+    <div class="footer-social">
+      <!-- ✏️ EDIT: Replace # with your actual profile URLs -->
+      <a href="#" target="_blank" title="GitHub">⌨️</a>
+      <a href="#" target="_blank" title="LinkedIn">💼</a>
+      <a href="#" target="_blank" title="Instagram">🅾</a>
+      <!-- ✏️ EDIT: Replace +910000000000 with your WhatsApp number -->
+      <a href="https://wa.me/918590796458" target="_blank" title="WhatsApp">💬</a>
+    </div>
+    <!-- ✏️ EDIT: Replace [YOUR NAME] -->
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <p class="footer-text" style="margin-top:0.4rem;">Built with <span class="accent">♥</span> & <span class="accent">lots of coffee</span></p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- ░░ FLOATING WHATSAPP ░░ -->
+  <!-- ✏️ EDIT: Replace +910000000000 with your WhatsApp number -->
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <!-- ░░ SCRIPTS ░░ -->
+  <script src="js/loading.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

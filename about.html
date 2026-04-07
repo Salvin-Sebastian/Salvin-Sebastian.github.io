@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> ABOUT</div>
+      <h1 class="page-hero-title">About <span class="accent">Me</span></h1>
+      <p class="page-hero-sub">// WHO AM I? LET ME DECRYPT THAT FOR YOU</p>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section>
+      <div class="about-grid">
+
+        <!-- Profile Photo -->
+        <div class="profile-photo-wrap reveal">
+          <div class="profile-photo-frame"> 
+            <div class="placeholder-icon"><img src="{css,js,images\{profile,certificates,projects,gallery},assets\Profile\photo.png"" alt="Salvin Sebastian" /></div>
+            <div class="photo-corner photo-corner-tl"></div>
+            <div class="photo-corner photo-corner-tr"></div>
+            <div class="photo-corner photo-corner-bl"></div>
+            <div class="photo-corner photo-corner-br"></div>
+          </div>
+          <p class="about-label">
+            <!-- ✏️ EDIT: Your name and title -->
+            SALVIN SEBASTIAN // STUDENT
+          </p>
+        </div>
+
+        <!-- About Info -->
+        <div class="about-info">
+          <h3 class="reveal">
+            <!-- ✏️ EDIT: Your tagline -->
+            Hello, I'm a <span style="color:var(--neon-green)">Cybersecurity Enthusiast</span>
+          </h3>
+
+          <!-- ✏️ EDIT: Your personal bio paragraphs -->
+          <p class="reveal reveal-delay-1">
+            I am Salvin Sebastian, a passionate and motivated technology enthusiast with a strong interest in software development and modern computing technologies. Currently pursuing my studies in computer applications, I am continuously building my knowledge in programming, problem-solving, and developing practical digital solutions. My interest in technology comes from the excitement of turning ideas into real applications that can solve problems and improve user experiences.
+          </p>
+          <p class="reveal reveal-delay-2">
+            Through my academic learning and personal projects, I enjoy exploring different programming concepts and experimenting with new tools and technologies. I focus on writing clean, efficient, and maintainable code while building applications that are functional, reliable, and user-friendly. Each project I work on helps me strengthen my technical skills and deepen my understanding of how software can be designed and implemented effectively.
+          </p>
+          <p class="reveal reveal-delay-3">
+            Beyond technical development, I believe in continuous learning, adaptability, and creativity in technology. I am always eager to expand my knowledge, collaborate with others, and take on new challenges that help me grow both personally and professionally. My goal is to develop innovative solutions, contribute to meaningful projects, and build a strong career in the field of technology.
+          </p>
+
+          <!-- Info Grid -->
+          <div class="info-grid reveal">
+            <!-- ✏️ EDIT: Update all values below -->
+            <div class="info-item">
+              <span class="label">NAME</span>
+              <span class="value">SALVIN SEBASTIAN</span>
+            </div>
+            <div class="info-item">
+              <span class="label">LOCATION</span>
+              <span class="value">Alappuzha, Kerala, India</span>
+            </div>
+            <div class="info-item">
+              <span class="label">COLLEGE</span>
+              <span class="value">Kristu Jyoti College of Management and Technology, Kurisummoodu P.O. Chethipuzha, Changanacherry 686104</span>
+            </div>
+            <div class="info-item">
+              <span class="label">DEGREE</span>
+              <span class="value">Bachelor's of Computer Application</span>
+            </div>
+            <div class="info-item">
+              <span class="label">YEAR</span>
+              <span class="value">2nd Year, 2024-2028</span>
+            </div>
+            <div class="info-item">
+              <span class="label">EMAIL</span>
+              <span class="value">salvinsebastian308@gmail.com</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section style="max-width:1200px;margin:0 auto;padding:2rem 2rem 5rem;">
+      <div class="section-header reveal">
+        <span class="section-tag">// ACADEMIC JOURNEY</span>
+        <h2 class="section-title">My <span class="accent">Education</span></h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;max-width:800px;margin:0 auto;">
+
+        <!-- ✏️ EDIT: Add / remove / modify education entries -->
+        <div class="card reveal" style="padding:1.5rem 1.75rem;position:relative;">
+          <div style="position:absolute;left:-1px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--neon-green),transparent);"></div>
+          <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-green);letter-spacing:0.2em;margin-bottom:0.4rem;">2024 – PRESENT</div>
+          <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-primary);margin-bottom:0.3rem;">Bachelor's of Computer Application</h3>
+          <p style="color:var(--neon-cyan);font-size:0.9rem;margin-bottom:0.5rem;">Kristu Jyoti College of Management and Technology, Kurisummoodu P.O. Chethipuzha, Changanacherry 686104</p>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">Specializing in cybersecurity modules, networking fundamentals, and software development. Active member of the cybersecurity club.</p>
+        </div>
+
+        <div class="card reveal reveal-delay-1" style="padding:1.5rem 1.75rem;position:relative;">
+          <div style="position:absolute;left:-1px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--neon-cyan),transparent);"></div>
+          <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-green);letter-spacing:0.2em;margin-bottom:0.4rem;">2022 – 2024</div>
+          <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-primary);margin-bottom:0.3rem;">Higher Secondary Education (12th Grade)</h3>
+          <p style="color:var(--neon-cyan);font-size:0.9rem;margin-bottom:0.5rem;">St. Mary's Higher Secondary School Champakulam</p>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">Computer Science Stream. Successfully completed Higher Secondary education (Class 12) under Kerala Board of Higher Secondary Education (DHSE), specializing in Computer Science. Gained advanced knowledge in key subjects, developed analytical and problem-solving skills, and prepared for higher education and professional studies.</p>
+        </div>
+
+        <div class="card reveal reveal-delay-1" style="padding:1.5rem 1.75rem;position:relative;">
+          <div style="position:absolute;left:-1px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--neon-cyan),transparent);"></div>
+          <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-green);letter-spacing:0.2em;margin-bottom:0.4rem;">2021 – 2022</div>
+          <h3 style="font-family:var(--font-display);font-size:1.1rem;color:var(--text-primary);margin-bottom:0.3rem;">High School (10th Grade)</h3>
+          <p style="color:var(--neon-cyan);font-size:0.9rem;margin-bottom:0.5rem;">St. Mary's Higher Secondary School Champakulam</p>
+          <p style="color:var(--text-secondary);font-size:0.9rem;">General Education. Successfully completed secondary education (Class 10) under Kerala Board of Public Examinations, covering foundational subjects in Science, Mathematics, Social Studies, and Languages. This certificate marks the completion of basic formal education and prepares for higher secondary studies.</p>
+        </div>
+
+      </div>
+    </section>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" target="_blank">⌨️</a>
+      <a href="#" target="_blank">💼</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank">💬</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

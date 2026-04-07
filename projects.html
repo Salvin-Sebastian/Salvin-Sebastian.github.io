@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> PROJECTS</div>
+      <h1 class="page-hero-title">My <span class="accent">Projects</span></h1>
+      <p class="page-hero-sub">// THINGS I BUILT AND BROKE </p>
+    </div>
+
+    <section>
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card card reveal">
+          <div class="project-image">
+            <img src="{css,js,images/Pojects/project1.jpg" alt="Portfolio"/>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Portfolio Web-Site</div>
+            <div class="project-desc">
+              This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information. The website features a modern design with smooth navigation and organized sections including About, Skills, Projects, and Contact. It is developed using HTML, CSS, and JavaScript with a focus on clean UI, responsiveness, and user-friendly interaction. The goal of this project is to present my work in a professional way and provide an easy way for visitors to explore my projects and get in touch.
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">PHP</span>
+              <span class="tag">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Salvin-Sebastian/Portfolio" class="btn btn-sm" target="_blank">⌨️ GitHub</a>
+              <a href="https://salvin-sebastian.netlify.app/" class="btn btn-sm" target="_blank">🔗 Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card card reveal">
+          <div class="project-image">
+            <img src="{css,js,images/Pojects/project2.png" alt="Portfolio"/>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Calculator Webpage</div>
+            <div class="project-desc">
+              A simple, responsive, and fully functional calculator built using HTML, CSS, and JavaScript. This project demonstrates core front-end development skills such as DOM manipulation, event handling, and logical problem-solving.
+
+The calculator performs basic arithmetic operations including addition, subtraction, multiplication, and division, with a real-time display for inputs and results. It features a clean and user-friendly interface, designed using CSS for a modern look and responsive layout across different devices.
+
+JavaScript is used to handle user interactions, process calculations, and manage edge cases like invalid inputs. Overall, this project showcases my ability to create interactive and efficient web applications using fundamental web technologies.
+
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Salvin-Sebastian/Calculator-Webpage" class="btn btn-sm" target="_blank">⌨️ GitHub</a>
+              <a href="https://salvin-sebastian.github.io/Calculator-Webpage/" class="btn btn-sm" target="_blank">🔗 Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card card reveal">
+          <div class="project-image">
+            <img src="{css,js,images/Pojects/project3.png" alt="Portfolio"/>
+          </div>
+          <div class="project-body">
+            <div class="project-title">ToDo List</div>
+            <div class="project-desc">
+              A dynamic and user-friendly To-Do List web application built using React, HTML, CSS, and JavaScript. This project showcases my ability to develop interactive user interfaces using modern front-end technologies and component-based architecture.
+
+The application allows users to add, edit, delete, and mark tasks as completed, helping them manage daily activities efficiently. It features real-time updates, ensuring a smooth and responsive user experience without page reloads.
+
+React is used to manage the application’s state and UI components, enabling efficient rendering and better code organization. CSS is applied to create a clean, responsive design that works seamlessly across different devices.
+
+This project highlights my understanding of React fundamentals, state management, event handling, and building practical, real-world applications.
+
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Salvin-Sebastian/React-ToDo-App" class="btn btn-sm" target="_blank">⌨️ GitHub</a>
+              <a href="https://salvin-sebastian.github.io/React-ToDo-App/" class="btn btn-sm" target="_blank">🔗 Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="project-card card reveal">
+          <div class="project-image">
+            <img src="{css,js,images/Pojects/project4.png" alt="Portfolio"/>
+          </div>
+          <div class="project-body">
+            <div class="project-title">Admin Dashbord Forntend</div>
+            <div class="project-desc">
+              A modern, responsive Admin Dashboard built using HTML and CSS with a clean layout, smooth UI, and interactive project cards.
+            </div>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Salvin-Sebastian/Admin-Dashboard" class="btn btn-sm" target="_blank">⌨️ GitHub</a>
+              <a href="https://salvin-sebastian.github.io/Admin-Dashboard/" class="btn btn-sm" target="_blank">🔗 Demo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" target="_blank">⌨️</a>
+      <a href="#" target="_blank">💼</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank">💬</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

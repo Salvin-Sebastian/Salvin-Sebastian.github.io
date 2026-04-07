@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">✕</span>
+    <img class="lightbox-img" src="" alt="Gallery Image" />
+  </div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> GALLERY</div>
+      <h1 class="page-hero-title">My <span class="accent">Gallery</span></h1>
+      <p class="page-hero-sub">// ACHIEVEMENTS, EVENTS &amp; LEARNING MEMORIES</p>
+    </div>
+
+    <section>
+
+      <!-- Filter Tabs -->
+      <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;" class="reveal">
+        <button class="btn btn-solid btn-sm" onclick="filterGallery('all')" id="filter-all">ALL</button>
+        <button class="btn btn-sm" onclick="filterGallery('achievements')" id="filter-achievements">ACHIEVEMENTS</button>
+        <button class="btn btn-sm" onclick="filterGallery('events')" id="filter-events">EVENTS</button>
+        <button class="btn btn-sm" onclick="filterGallery('workshops')" id="filter-workshops">WORKSHOPS</button>
+        <button class="btn btn-sm" onclick="filterGallery('learning')" id="filter-learning">LEARNING</button>
+      </div>
+
+      <div class="gallery-grid" id="gallery-container">
+
+        <div class="gallery-item reveal" data-src="{css,js,images/Certificate/cert6.jpg" data-category="Intership">
+          <div class="gallery-placeholder">
+            <span>🏆</span>
+            <span>ACHIEVEMENT</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;"></span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert6.jpg" alt="Intership"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="images/gallery/img2.jpg" data-category="events">
+          <div class="gallery-placeholder">
+            <span>🎯</span>
+            <span>EVENT</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;">Add image/gallery/img2.jpg</span>
+          </div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="image/gallery/img3.jpg" data-category="Workshop">
+          <div class="gallery-placeholder">
+            <span>🛠️</span>
+            <span>WORKSHOP</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;">Add image/gallery/img3.jpg</span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert9.jpeg" alt="Webinar"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="{css,js,images/Certificate/cert1.jpg" data-category="learning">
+          <div class="gallery-placeholder">
+            <span>📚</span>
+            <span>LEARNING</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;"></span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert1.jpg" alt="Webinar"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="{css,js,images/Certificate/cert4.jpg" data-category="achievements">
+          <div class="gallery-placeholder">
+            <span>🎖️</span>
+            <span>ACHIEVEMENT</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;">Add image/gallery/img5.jpg</span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert4.jpg" alt="Training"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="{css,js,images/Certificate/cert3.jpg" data-category="events">
+          <div class="gallery-placeholder">
+            <span>🌐</span>
+            <span>EVENT</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;"></span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert3.jpg" alt="Event"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="{css,js,images/Certificate/cert7.jpg" data-category="Python Workshop">
+        <div class="gallery-placeholder">
+            <span>💻</span>
+            <span>WORKSHOP</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;"></span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert7.jpg" alt="Cybersecurity Bootcamp"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="images/gallery/img8.jpg" data-category="learning">
+          <div class="gallery-placeholder">
+            <span>🔬</span>
+            <span>LEARNING</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;">Add image/gallery/img8.jpg</span>
+          </div>
+          <div class="gallery-overlay"><img src="{css,js,images/Certificate/cert10.png" alt="Prompt Engineering Masterclass"/></div>
+        </div>
+
+        <div class="gallery-item reveal" data-src="images/gallery/img9.jpg" data-category="achievements">
+          <div class="gallery-placeholder">
+            <span>🥇</span>
+            <span>CTF WIN</span>
+            <span style="font-size:0.65rem;margin-top:0.25rem;">Add image/gallery/img9.jpg</span>
+          </div>
+          <div class="gallery-overlay">🔍</div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      <a href="#" target="_blank">⌨️</a>
+      <a href="#" target="_blank">💼</a>
+      <a href="#" target="_blank">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank">💬</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    /* Gallery Filter */
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const btns = document.querySelectorAll('[id^="filter-"]');
+      btns.forEach(b => b.classList.remove('btn-solid'));
+      const activeBtn = document.getElementById('filter-' + category);
+      if (activeBtn) activeBtn.classList.add('btn-solid');
+
+      items.forEach(item => {
+        const cat = item.dataset.category;
+        if (category === 'all' || cat === category) {
+          item.style.display = '';
+          item.style.opacity = '0';
+          setTimeout(() => { item.style.opacity = '1'; item.style.transition = 'opacity 0.4s'; }, 10);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

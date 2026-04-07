@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+</head>
+<body>
+  <div id="scroll-progress"></div>
+
+  <canvas id="matrix-bg"></canvas>
+  <canvas id="particle-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.2;"></canvas>
+  <div class="scanlines"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <nav>
+    <a class="nav-logo" href="index.html">PORT<span>FOLIO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="certificates.html">Certificates</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="index.html">HOME</a> <span>/</span> CONTACT</div>
+      <h1 class="page-hero-title">Get In <span class="accent">Touch</span></h1>
+      <p class="page-hero-sub">// ESTABLISHING SECURE CHANNEL...</p>
+    </div>
+
+    <section>
+      <div class="contact-grid">
+
+        <!-- LEFT: Contact Cards -->
+        <div class="contact-cards">
+
+          <div class="section-header" style="text-align:left;margin-bottom:2rem;">
+            <span class="section-tag">// REACH ME AT</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Contact Me <span class="accent">Through</span></h2>
+            <div class="section-divider" style="margin-left:0;"></div>
+          </div>
+
+          <!--
+            ✏️ EDIT: Update all href values with your actual links
+            Email:    mailto:salvinsebastian308@gmailcom.
+            GitHub:   https://github.com/salvin-sebastian
+            LinkedIn: https://linkedin.com/in/salvin-sebastian
+            Instagram: https://instagram.com/sa_lv_in_308
+            WhatsApp: https://wa.me/918590796458
+            MuLearn:  https://mulearn.org/profile/salvinsebastian@mulearn
+          -->
+
+          <a href="mailto:salvinsebastian308@gmail.com" class="contact-card card reveal">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <span class="label">EMAIL</span>
+              <span class="value">salvinsebastian308@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://github.com/salvin-sebastian" class="contact-card card reveal reveal-delay-1" target="_blank">
+            <div class="contact-icon">⌨️</div>
+            <div class="contact-info">
+              <span class="label">GITHUB</span>
+              <span class="value">github.com/salvin-sebastian</span>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/salvin-sebastian/" class="contact-card card reveal reveal-delay-2" target="_blank">
+            <div class="contact-icon">💼</div>
+            <div class="contact-info">
+              <span class="label">LINKEDIN</span>
+              <span class="value">linkedin.com/in/salvin-sebastian</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/sa_lv_in_308" class="contact-card card reveal reveal-delay-3" target="_blank">
+            <div class="contact-icon">📸</div>
+            <div class="contact-info">
+              <span class="label">INSTAGRAM</span>
+              <span class="value">https://instagram.com/sa_lv_in_308</span>
+            </div>
+          </a>
+
+          <a href="https://wa.me/918590796458" class="contact-card card reveal" target="_blank">
+            <div class="contact-icon" style="background:#25D366;border-color:#25D366;color:#000;">💬</div>
+            <div class="contact-info">
+              <span class="label">WHATSAPP</span>
+              <span class="value">+91 8590796458</span>
+            </div>
+          </a>
+
+          <a href="https://app.mulearn.org/profile/salvinsebastian@mulearn" class="contact-card card reveal reveal-delay-1" target="_blank">
+            <div class="contact-icon">🎓</div>
+            <div class="contact-info">
+              <span class="label">MULEARN</span>
+              <span class="value">mulearn.org/salvinsebastian@mulearn</span>
+            </div>
+          </a>
+
+        </div>
+
+        <!-- RIGHT: Contact Form -->
+        <div>
+          <div class="section-header" style="text-align:left;margin-bottom:2rem;">
+            <span class="section-tag">// SEND A MESSAGE</span>
+            <h2 class="section-title" style="font-size:1.6rem;">Drop a <span class="accent">Message</span></h2>
+            <div class="section-divider" style="margin-left:0;"></div>
+          </div>
+
+          <div class="card reveal" style="padding:2rem;">
+            <!--
+              ✏️ FORM BACKEND OPTIONS:
+              1. Formspree: Change action to "https://formspree.io/f/YOUR_FORM_ID" and remove onsubmit
+              2. EmailJS:   Use their SDK in script.js
+              3. Default:  The simulated submit in animations.js will show a success message
+            -->
+            <form id="contact-form" class="contact-form" autocomplete="off">
+              <div class="form-group">
+                <label for="name">// NAME</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name..." required />
+              </div>
+              <div class="form-group">
+                <label for="email">// EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email..." required />
+              </div>
+              <div class="form-group">
+                <label for="subject">// SUBJECT</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?" />
+              </div>
+              <div class="form-group">
+                <label for="message">// MESSAGE</label>
+                <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+              </div>
+              <div class="form-status" id="form-status"></div>
+              <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;">
+                SEND MESSAGE ⟶
+              </button>
+            </form>
+          </div>
+
+          <!-- Map or location note -->
+          <div class="card reveal" style="padding:1.25rem 1.5rem;margin-top:1.25rem;display:flex;align-items:center;gap:1rem;">
+            <span style="font-size:1.8rem;">📍</span>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--neon-green);letter-spacing:0.2em;">LOCATION</div>
+              <!-- ✏️ EDIT: Your location -->
+              <div style="font-size:0.95rem;color:var(--text-primary);font-weight:600;">In Alappzuha, Kerala, India</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-social">
+      <!-- ✏️ EDIT: Your actual links -->
+      <a href="https://github.com/salvin-sebastian" target="_blank" title="GitHub">⌨️</a>
+      <a href="https://linkedin.com/in/salvin-sebastian" target="_blank" title="LinkedIn">💼</a>
+      <a href="https://instagram.com/sa_lv_in_308" target="_blank" title="Instagram">📸</a>
+      <a href="https://wa.me/918590796458" target="_blank" title="WhatsApp">💬</a>
+      <a href="https://app.mulearn.org/profile/salvinsebastian@mulearn" target="_blank" title="MuLearn">🎓</a>
+    </div>
+    <p class="footer-text">© <span id="year"></span> <span class="accent">SALVIN SEBASTIAN</span> — All Rights Reserved</p>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <a href="https://wa.me/918590796458" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
