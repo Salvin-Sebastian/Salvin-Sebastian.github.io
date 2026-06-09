@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { FaUserSecret } from 'react-icons/fa';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -19,7 +20,10 @@ export default function Navbar() {
 
   return (
     <nav>
-      <Link className="nav-logo" to="/">PORT<span>FOLIO</span></Link>
+      <Link className="nav-logo" to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'var(--font-mono)' }}>
+        <FaUserSecret style={{ color: 'var(--neon-green)', fontSize: '1.8rem' }} />
+        <span>SALVIN<span className="accent">.</span></span>
+      </Link>
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
         {navLinks.map((link) => (
           <li key={link.path}>
