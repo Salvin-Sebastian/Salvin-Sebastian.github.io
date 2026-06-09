@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundEffects from './components/BackgroundEffects';
-import LoadingScreen from './components/LoadingScreen';
+
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -15,7 +15,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <Router>
-      <LoadingScreen />
+
       <BackgroundEffects />
       
       {/* ░░ CURSOR ░░ */}
