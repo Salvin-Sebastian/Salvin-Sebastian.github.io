@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     const reveals = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       const windowHeight = window.innerHeight;
-      const elementVisible = 150;
+      const elementVisible = 50;
       reveals.forEach((reveal) => {
         const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
@@ -127,3 +128,4 @@ export default function Home() {
     </div>
   );
 }
+

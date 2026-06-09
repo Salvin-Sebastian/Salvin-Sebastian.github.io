@@ -4,10 +4,11 @@ import portfolioData from '../data/portfolio_data.json';
 
 export default function Certificates() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     const reveals = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       const windowHeight = window.innerHeight;
-      const elementVisible = 150;
+      const elementVisible = 50;
       reveals.forEach((reveal) => {
         const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
@@ -48,3 +49,4 @@ export default function Certificates() {
     </div>
   );
 }
+
