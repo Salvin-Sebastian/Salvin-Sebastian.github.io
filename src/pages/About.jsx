@@ -36,7 +36,7 @@ export default function About() {
               <div className="photo-corner photo-corner-tr"></div>
               <div className="photo-corner photo-corner-bl"></div>
               <div className="photo-corner photo-corner-br"></div>
-              <img src="/assets/images/profile/photo.png" alt="Salvin Sebastian" onError={(e) => { e.target.style.display='none'; }} />
+              <img src="/assets/images/profile/photo.webp" alt="Salvin Sebastian" onError={(e) => { e.target.style.display='none'; }} />
               <div className="placeholder-icon" style={{display: 'none'}}>👤</div>
             </div>
             <div className="about-label">TARGET ACQUIRED</div>

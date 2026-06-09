@@ -4,7 +4,7 @@
       "title": "Portfolio Web-Site",
       "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information.",
       "tags": ["HTML", "CSS", "JavaScript", "React"],
-      "image": "/assets/images/projects/project1.jpg",
+      "image": "/assets/images/projects/project1.webp",
       "github_link": "https://github.com/Salvin-Sebastian/Portfolio",
       "demo_link": "https://salvin-sebastian.netlify.app/"
     },
@@ -12,7 +12,7 @@
       "title": "Calculator Webpage",
       "description": "A simple, responsive, and fully functional calculator built using HTML, CSS, and JavaScript.",
       "tags": ["HTML", "CSS", "JavaScript"],
-      "image": "/assets/images/projects/project2.png",
+      "image": "/assets/images/projects/project2.webp",
       "github_link": "https://github.com/Salvin-Sebastian/Calculator-Webpage",
       "demo_link": "https://salvin-sebastian.github.io/Calculator-Webpage/"
     }
@@ -23,7 +23,7 @@
       "organization": "EC-Council",
       "date": "2025-01-15",
       "description": "Comprehensive certification covering the latest ethical hacking techniques and cybersecurity methodologies.",
-      "image": "/assets/images/certificates/placeholder.png"
+      "image": "/assets/images/certificates/placeholder.webp"
     }
   ]
 }
