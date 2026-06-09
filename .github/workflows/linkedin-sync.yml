@@ -20,7 +20,7 @@ jobs:
 
       - name: Run Fetch Script
         env:
-          PROXYCURL_API_KEY: ${{ secrets.PROXYCURL_API_KEY }}
+          RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
         run: |
           node scripts/fetch-linkedin.js
 
