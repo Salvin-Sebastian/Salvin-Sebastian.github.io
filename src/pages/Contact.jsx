@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaGraduationCap, FaMapMarkerAlt } from 'react-icons/fa';
 
 export default function Contact() {
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function Contact() {
             </div>
 
             <a href="mailto:salvinsebastian308@gmail.com" className="contact-card card reveal">
-              <div className="contact-icon">📧</div>
+              <div className="contact-icon"><FaEnvelope /></div>
               <div className="contact-info">
                 <span className="label">EMAIL</span>
                 <span className="value">salvinsebastian308@gmail.com</span>
@@ -46,7 +47,7 @@ export default function Contact() {
             </a>
 
             <a href="https://github.com/salvin-sebastian" className="contact-card card reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
-              <div className="contact-icon">⌨️</div>
+              <div className="contact-icon"><FaGithub /></div>
               <div className="contact-info">
                 <span className="label">GITHUB</span>
                 <span className="value">github.com/salvin-sebastian</span>
@@ -54,7 +55,7 @@ export default function Contact() {
             </a>
 
             <a href="https://www.linkedin.com/in/salvin-sebastian/" className="contact-card card reveal reveal-delay-2" target="_blank" rel="noopener noreferrer">
-              <div className="contact-icon">💼</div>
+              <div className="contact-icon"><FaLinkedin /></div>
               <div className="contact-info">
                 <span className="label">LINKEDIN</span>
                 <span className="value">linkedin.com/in/salvin-sebastian</span>
@@ -62,7 +63,7 @@ export default function Contact() {
             </a>
 
             <a href="https://instagram.com/sa_lv_in_308" className="contact-card card reveal reveal-delay-3" target="_blank" rel="noopener noreferrer">
-              <div className="contact-icon">📸</div>
+              <div className="contact-icon"><FaInstagram /></div>
               <div className="contact-info">
                 <span className="label">INSTAGRAM</span>
                 <span className="value">https://instagram.com/sa_lv_in_308</span>
@@ -70,7 +71,7 @@ export default function Contact() {
             </a>
 
             <a href="https://wa.me/918590796458" className="contact-card card reveal" target="_blank" rel="noopener noreferrer">
-              <div className="contact-icon" style={{background: '#25D366', borderColor: '#25D366', color: '#000'}}>💬</div>
+              <div className="contact-icon" style={{background: '#25D366', borderColor: '#25D366', color: '#000'}}><FaWhatsapp /></div>
               <div className="contact-info">
                 <span className="label">WHATSAPP</span>
                 <span className="value">+91 8590796458</span>
@@ -78,7 +79,7 @@ export default function Contact() {
             </a>
 
             <a href="https://app.mulearn.org/profile/salvinsebastian@mulearn" className="contact-card card reveal reveal-delay-1" target="_blank" rel="noopener noreferrer">
-              <div className="contact-icon">🎓</div>
+              <div className="contact-icon"><FaGraduationCap /></div>
               <div className="contact-info">
                 <span className="label">MULEARN</span>
                 <span className="value">mulearn.org/salvinsebastian@mulearn</span>
@@ -118,7 +119,7 @@ export default function Contact() {
             </div>
 
             <div className="card reveal" style={{padding: '1.25rem 1.5rem', marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem'}}>
-              <span style={{fontSize: '1.8rem'}}>📍</span>
+              <span style={{fontSize: '1.8rem', color: 'var(--neon-green)'}}><FaMapMarkerAlt /></span>
               <div>
                 <div style={{fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--neon-green)', letterSpacing: '0.2em'}}>LOCATION</div>
                 <div style={{fontSize: '0.95rem', color: 'var(--text-primary)', fontWeight: 600}}>In Alappuzha, Kerala, India</div>

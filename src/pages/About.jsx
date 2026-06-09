@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUserAlt, FaDownload } from 'react-icons/fa';
 
 export default function About() {
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function About() {
         <div className="about-grid">
           <div className="profile-photo-wrap reveal">
             <div className="profile-photo-frame">
-              <div className="placeholder-icon"><img src="/assets/images/profile/photo.webp" alt="Salvin Sebastian" /></div>
+              <div className="placeholder-icon"><img src="/assets/images/profile/photo.webp" alt="Salvin Sebastian" onError={(e) => { e.target.style.display="none"; e.target.nextSibling.style.display="block"; }} /><FaUserAlt style={{display:"none", fontSize:"4rem", color:"var(--text-muted)"}} /></div>
               <div className="photo-corner photo-corner-tl"></div>
               <div className="photo-corner photo-corner-tr"></div>
               <div className="photo-corner photo-corner-bl"></div>
@@ -86,7 +87,7 @@ export default function About() {
             </div>
             
             <div style={{marginTop: '2rem'}}>
-              <a href="/assets/images/profile/profile.pdf" className="btn btn-solid" download>DOWNLOAD RESUME</a>
+              <a href="/assets/images/profile/profile.pdf" className="btn btn-solid" download="Salvin_Sebastian_Resume.pdf"><FaDownload style={{marginRight:"8px"}}/> DOWNLOAD RESUME</a>
             </div>
           </div>
         </div>

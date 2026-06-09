@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaShieldAlt, FaPython, FaJava, FaJsSquare, FaGlobe, FaChartBar, FaDownload } from 'react-icons/fa';
+import { SiCplusplus } from 'react-icons/si';
 
 export default function Home() {
   useEffect(() => {
@@ -82,7 +84,7 @@ export default function Home() {
             <Link to="/projects" className="btn btn-solid">VIEW PROJECTS</Link>
             <Link to="/certificates" className="btn">CERTIFICATES</Link>
             <Link to="/contact" className="btn">CONTACT ME</Link>
-            <a href="/assets/images/profile/profile.pdf" className="btn" download>⬇ DOWNLOAD CV</a>
+            <a href="/assets/images/profile/profile.pdf" className="btn" download="Salvin_Sebastian_Resume.pdf"><FaDownload style={{marginRight:'8px'}} /> DOWNLOAD CV</a>
           </div>
         </div>
 
@@ -118,13 +120,13 @@ export default function Home() {
         </div>
 
         <div className="skills-grid">
-          <div className="skill-card card reveal"><span className="skill-icon">🛡️</span><span className="skill-name">Cyber </span><span className="skill-cat">Security</span></div>
-          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon">🐍</span><span className="skill-name">Python </span><span className="skill-cat">Programming</span></div>
-          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon">☕︎</span><span className="skill-name">Java </span><span className="skill-cat">Programming</span></div>
-          <div className="skill-card card reveal reveal-delay-3"><span className="skill-icon">JS</span><span className="skill-name">JavaScript</span></div>
-          <div className="skill-card card reveal"><span className="skill-icon">🌐</span><span className="skill-name">HTML</span></div>
-          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon">©️</span><span className="skill-name">C </span><span className="skill-cat">Programming</span></div>
-          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon">📊</span><span className="skill-name">Feature </span><span className="skill-cat">Engineering</span></div>
+          <div className="skill-card card reveal"><span className="skill-icon"><FaShieldAlt /></span><span className="skill-name">Cyber </span><span className="skill-cat">Security</span></div>
+          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon"><FaPython /></span><span className="skill-name">Python </span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon"><FaJava /></span><span className="skill-name">Java </span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal reveal-delay-3"><span className="skill-icon"><FaJsSquare /></span><span className="skill-name">JavaScript</span></div>
+          <div className="skill-card card reveal"><span className="skill-icon"><FaGlobe /></span><span className="skill-name">HTML</span></div>
+          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon"><SiCplusplus /></span><span className="skill-name">C </span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon"><FaChartBar /></span><span className="skill-name">Feature </span><span className="skill-cat">Engineering</span></div>
         </div>
 
         <div style={{textAlign: 'center', marginTop: '2.5rem'}}>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaTrophy, FaCalendarAlt, FaWrench, FaBookReader, FaSearch, FaMedal } from 'react-icons/fa';
 
 export default function Gallery() {
   const [filter, setFilter] = useState('all');
@@ -23,15 +24,15 @@ export default function Gallery() {
   }, []);
 
   const items = [
-    { src: '/assets/images/certificates/cert6.webp', cat: 'Intership', title: 'ACHIEVEMENT', icon: '🏆' },
-    { src: '/images/gallery/img2.jpg', cat: 'events', title: 'EVENT', icon: '🎯', sub: 'Add image/gallery/img2.jpg' },
-    { src: '/assets/images/certificates/cert9.webp', cat: 'Workshop', title: 'WORKSHOP', icon: '🛠️', sub: 'Add image/gallery/img3.jpg' },
-    { src: '/assets/images/certificates/cert1.webp', cat: 'learning', title: 'LEARNING', icon: '📚' },
-    { src: '/assets/images/certificates/cert4.webp', cat: 'achievements', title: 'ACHIEVEMENT', icon: '🎖️', sub: 'Add image/gallery/img5.jpg' },
-    { src: '/assets/images/certificates/cert3.webp', cat: 'events', title: 'EVENT', icon: '🌐' },
-    { src: '/assets/images/certificates/cert7.webp', cat: 'Python Workshop', title: 'WORKSHOP', icon: '💻' },
-    { src: '/assets/images/certificates/cert10.webp', cat: 'learning', title: 'LEARNING', icon: '🔬', sub: 'Add image/gallery/img8.jpg' },
-    { src: '/images/gallery/img9.jpg', cat: 'achievements', title: 'CTF WIN', icon: '🥇', sub: 'Add image/gallery/img9.jpg' },
+    { src: '/assets/images/certificates/cert6.webp', cat: 'Intership', title: 'ACHIEVEMENT', icon: <FaTrophy /> },
+    { src: '/images/gallery/img2.jpg', cat: 'events', title: 'EVENT', icon: <FaCalendarAlt />, sub: 'Add image/gallery/img2.jpg' },
+    { src: '/assets/images/certificates/cert9.webp', cat: 'Workshop', title: 'WORKSHOP', icon: <FaWrench />, sub: 'Add image/gallery/img3.jpg' },
+    { src: '/assets/images/certificates/cert1.webp', cat: 'learning', title: 'LEARNING', icon: <FaBookReader /> },
+    { src: '/assets/images/certificates/cert4.webp', cat: 'achievements', title: 'ACHIEVEMENT', icon: <FaMedal />, sub: 'Add image/gallery/img5.jpg' },
+    { src: '/assets/images/certificates/cert3.webp', cat: 'events', title: 'EVENT', icon: <FaCalendarAlt /> },
+    { src: '/assets/images/certificates/cert7.webp', cat: 'Python Workshop', title: 'WORKSHOP', icon: <FaWrench /> },
+    { src: '/assets/images/certificates/cert10.webp', cat: 'learning', title: 'LEARNING', icon: <FaBookReader />, sub: 'Add image/gallery/img8.jpg' },
+    { src: '/images/gallery/img9.jpg', cat: 'achievements', title: 'CTF WIN', icon: <FaMedal />, sub: 'Add image/gallery/img9.jpg' },
   ];
 
   const filtered = filter === 'all' ? items : items.filter(i => i.cat === filter);
@@ -57,12 +58,12 @@ export default function Gallery() {
           {filtered.map((item, i) => (
             <div key={i} className="gallery-item reveal revealed" style={{opacity: 1}}>
               <div className="gallery-placeholder">
-                <span>{item.icon}</span>
+                <span style={{fontSize: '2rem', marginBottom: '8px'}}>{item.icon}</span>
                 <span>{item.title}</span>
                 {item.sub && <span style={{fontSize: '0.65rem', marginTop: '0.25rem'}}>{item.sub}</span>}
               </div>
               <div className="gallery-overlay">
-                {item.src.startsWith('/assets') ? <img src={item.src} alt={item.title} /> : '🔍'}
+                {item.src.startsWith('/assets') ? <img src={item.src} alt={item.title} /> : <FaSearch />}
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import portfolioData from '../data/portfolio_data.json';
 
 export default function Projects() {
@@ -47,10 +48,10 @@ export default function Projects() {
                 </div>
                 <div className="project-links">
                   {project.github_link && (
-                    <a href={project.github_link} className="btn btn-sm" target="_blank" rel="noopener noreferrer">⌨️ GitHub</a>
+                    <a href={project.github_link} className="btn btn-sm" target="_blank" rel="noopener noreferrer"><FaGithub style={{marginRight:'5px'}}/> GitHub</a>
                   )}
                   {project.demo_link && (
-                    <a href={project.demo_link} className="btn btn-sm" target="_blank" rel="noopener noreferrer">🔗 Demo</a>
+                    <a href={project.demo_link} className="btn btn-sm" target="_blank" rel="noopener noreferrer"><FaExternalLinkAlt style={{marginRight:'5px'}}/> Demo</a>
                   )}
                 </div>
               </div>
