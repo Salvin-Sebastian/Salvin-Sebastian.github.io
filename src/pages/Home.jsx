@@ -17,39 +17,42 @@ export default function Home() {
     };
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
-    
-    // Typing effect
-    const typingText = document.querySelector('.typing-text');
-    if (typingText) {
-      const words = JSON.parse(typingText.getAttribute('data-words') || '[]');
-      let wordIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      const type = () => {
-        const currentWord = words[wordIndex];
-        if (isDeleting) {
-          typingText.textContent = currentWord.substring(0, charIndex - 1);
-          charIndex--;
-        } else {
-          typingText.textContent = currentWord.substring(0, charIndex + 1);
-          charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 50 : 100;
-        if (!isDeleting && charIndex === currentWord.length) {
-          typeSpeed = 2000;
-          isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          wordIndex = (wordIndex + 1) % words.length;
-          typeSpeed = 500;
-        }
-        setTimeout(type, typeSpeed);
-      };
-      if(words.length > 0) type();
-    }
-
     return () => window.removeEventListener('scroll', revealOnScroll);
+  }, []);
+
+  useEffect(() => {
+    const textEl = document.querySelector('.typing-text');
+    if (!textEl) return;
+    const words = JSON.parse(textEl.getAttribute('data-words'));
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    const type = () => {
+      const currentWord = words[wordIndex];
+      if (isDeleting) {
+        textEl.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+      } else {
+        textEl.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 150;
+      }
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        typeSpeed = 1500;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        typeSpeed = 500;
+      }
+      setTimeout(type, typeSpeed);
+    };
+    const timer = setTimeout(type, 1000);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -115,10 +118,13 @@ export default function Home() {
         </div>
 
         <div className="skills-grid">
-          <div className="skill-card card reveal"><span className="skill-icon">🛡️</span><span className="skill-name">Cyber</span><span className="skill-cat">Security</span></div>
-          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon">🐍</span><span className="skill-name">Python</span><span className="skill-cat">Programming</span></div>
-          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon">☕︎</span><span className="skill-name">Java</span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal"><span className="skill-icon">🛡️</span><span className="skill-name">Cyber </span><span className="skill-cat">Security</span></div>
+          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon">🐍</span><span className="skill-name">Python </span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon">☕︎</span><span className="skill-name">Java </span><span className="skill-cat">Programming</span></div>
           <div className="skill-card card reveal reveal-delay-3"><span className="skill-icon">JS</span><span className="skill-name">JavaScript</span></div>
+          <div className="skill-card card reveal"><span className="skill-icon">🌐</span><span className="skill-name">HTML</span></div>
+          <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon">©️</span><span className="skill-name">C </span><span className="skill-cat">Programming</span></div>
+          <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon">📊</span><span className="skill-name">Feature </span><span className="skill-cat">Engineering</span></div>
         </div>
 
         <div style={{textAlign: 'center', marginTop: '2.5rem'}}>
@@ -128,4 +134,3 @@ export default function Home() {
     </div>
   );
 }
-
