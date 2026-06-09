@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
 import { FaTrophy, FaCalendarAlt, FaWrench, FaBookReader, FaSearch, FaMedal } from 'react-icons/fa';
 
