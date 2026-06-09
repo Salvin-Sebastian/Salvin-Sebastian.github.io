@@ -1,0 +1,39 @@
+name: LinkedIn Profile Sync
+
+on:
+  schedule:
+    # Run at 00:00 on Sunday (Weekly)
+    - cron: '0 0 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  sync-linkedin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Fetch Script
+        env:
+          PROXYCURL_API_KEY: ${{ secrets.PROXYCURL_API_KEY }}
+        run: |
+          node scripts/fetch-linkedin.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code src/data/linkedin_data.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/data/linkedin_data.json
+          git commit -m "chore: automated linkedin data sync"
+          git push

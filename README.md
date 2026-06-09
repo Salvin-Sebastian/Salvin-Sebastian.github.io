@@ -1,9 +1,41 @@
 # Portfolio
-A responsive personal portfolio website built to showcase my projects, technical skills, and development journey. It features sections like About, Skills, Projects, and Contact with a clean and modern user interface. Developed using HTML, CSS, and JavaScript with a focus on responsive design and smooth user experience.
 
-# 🔐 Portfolio — Edit Guide
+A responsive, modern personal portfolio website built to showcase projects, technical skills, and development journey. Originally built with vanilla HTML/CSS/JS, it has now been modernized into a **React Single Page Application (SPA)** powered by **Vite**. 
 
-A dark-themed cybersecurity portfolio website. Here's everything you need to know to make it yours.
+It features automated synchronization with LinkedIn data, pulling the latest projects and certificates directly into the website without manual edits.
+
+# 🔐 Portfolio — Setup & Edit Guide
+
+A dark-themed cybersecurity portfolio website. Here's everything you need to know to run it, customize it, and set up the automated LinkedIn data extraction.
+
+---
+
+## 🛠️ Tech Stack
+- **Framework:** React + Vite
+- **Routing:** React Router DOM
+- **Styling:** Vanilla CSS (Global styles with CSS Variables)
+- **Automation:** GitHub Actions + Node.js (Proxycurl API)
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally on your machine:
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
 ---
 
@@ -11,146 +43,109 @@ A dark-themed cybersecurity portfolio website. Here's everything you need to kno
 
 ```
 portfolio-website/
-├── index.html          ← Home page
-├── about.html          ← About Me
-├── skills.html         ← Skills showcase
-├── certificates.html   ← Your certificates
-├── projects.html       ← Your projects
-├── gallery.html        ← Photo gallery
-├── contact.html        ← Contact page
+├── index.html                  ← Vite Entry point
+├── src/
+│   ├── App.jsx                 ← Main Router & Layout
+│   ├── main.jsx                ← React Entry
+│   ├── components/             ← Reusable React components (Navbar, Footer, BackgroundEffects)
+│   ├── pages/                  ← Page components (Home, About, Projects, etc.)
+│   ├── styles/
+│   │   └── style.css           ← Global styles (colors, layout, animations)
+│   └── data/
+│       └── linkedin_data.json  ← Automatically generated data file (Projects/Certificates)
 │
-├── css/
-│   └── style.css       ← All styles (colors, layout, animations)
+├── public/
+│   └── assets/                 ← Static assets (icons, images, PDF resume)
 │
-├── js/
-│   ├── loading.js      ← Matrix rain + loading screen
-│   ├── animations.js   ← Scroll reveals, typing, cursor
-│   └── script.js       ← Particles, misc utilities
+├── scripts/
+│   └── fetch-linkedin.js       ← Node.js script to fetch LinkedIn data
 │
-├── images/
-│   ├── profile/        ← Put your profile photo here
-│   ├── certificates/   ← Put certificate images here
-│   ├── projects/       ← Put project screenshots here
-│   └── gallery/        ← Put gallery photos here
-│
-└── assets/
-    ├── icons/          ← favicon.svg
-    └── resume.pdf      ← PUT YOUR RESUME HERE ← important!
+└── .github/
+    └── workflows/
+        └── linkedin-sync.yml   ← GitHub Action to automate data fetching
 ```
+
+---
+
+## 🤖 Automated LinkedIn Data Extraction
+
+This portfolio automatically fetches your latest projects and certifications from LinkedIn using a GitHub Action and a third-party API (Proxycurl).
+
+### How to set it up:
+
+1. **Get an API Key:** Sign up for an account at [Proxycurl](https://nubela.co/proxycurl/) (or alternative) and get your API key.
+2. **Add GitHub Secret:** 
+   - Go to your repository **Settings** -> **Secrets and variables** -> **Actions**
+   - Click **New repository secret**
+   - Name: `PROXYCURL_API_KEY`
+   - Value: `[Your actual API key]`
+3. **Allow Actions to Commit:**
+   - Go to **Settings** -> **Actions** -> **General**
+   - Under **Workflow permissions**, select **Read and write permissions**.
+
+**How it works:**
+The GitHub action `.github/workflows/linkedin-sync.yml` runs every week (Sunday at midnight). It executes the `scripts/fetch-linkedin.js` file, which queries the API, formats your LinkedIn projects and certificates, and updates `src/data/linkedin_data.json`. The React components `<Projects />` and `<Certificates />` read directly from this file.
 
 ---
 
 ## ✏️ Quick Edit Checklist
 
-### 1. Your Name
-Search all HTML files for `[YOUR NAME]` and replace with your actual name.
+### 1. Profile Photo
+- Copy your photo to `public/assets/images/profile/photo.png`
 
-### 2. Profile Photo
-- Copy your photo to `images/profile/photo.jpg`
-- In `about.html`, find the `placeholder-icon` div and replace it with:
-  ```html
-  <img src="images/profile/photo.jpg" alt="Your Name" />
-  ```
+### 2. Resume / CV
+- Copy your PDF resume to `public/assets/images/profile/profile.pdf`
+- The download button on the Home and About pages will automatically link to it.
 
-### 3. Resume / CV
-- Copy your PDF resume to `assets/resume.pdf`
-- The download button on the home page will automatically work.
+### 3. Social Links
+Open `src/components/Footer.jsx` and `src/App.jsx` (for the WhatsApp floating button) and replace the URLs with your actual profiles:
+- GitHub
+- LinkedIn
+- Instagram
+- WhatsApp
+- MuLearn
 
-### 4. Social Links
-Search all HTML files for these placeholders and replace with your actual URLs:
-- `https://github.com/yourusername`
-- `https://linkedin.com/in/yourprofile`
-- `https://instagram.com/yourhandle`
-- `https://wa.me/910000000000` → Replace `910000000000` with your WhatsApp number (country code + number, no spaces or +)
-- `https://mulearn.org/profile/yourusername`
-- `mailto:your@email.com`
+### 4. About Me Text
+Open `src/pages/About.jsx` and edit the paragraphs inside the `<div className="about-info">`.
 
-### 5. About Me Text
-Open `about.html` and edit the paragraphs in the `about-info` section.
+### 5. Skills
+Open `src/pages/Home.jsx` and `src/pages/Skills.jsx`. Add or remove `<div className="skill-card">` components as needed.
 
-### 6. Skills
-Open `skills.html`. Each `.skill-card` has an emoji, name, and category. Add/remove cards as needed.
+### 6. Projects & Certificates
+Since these are now automated, you generally don't need to manually edit the code for these. However, if you want to manually add an item or an image that isn't on LinkedIn:
+- Open `src/data/linkedin_data.json` and manually add the object.
+- *Note: The automated script is designed to preserve manual additions if the titles match.*
 
-### 7. Certificates
-Open `certificates.html`:
-- Add certificate images to `images/certificates/`
-- Replace the emoji placeholder in each `.cert-image` div with: `<img src="images/certificates/cert.jpg" alt="..." />`
-- Update the title, organization, description, and date.
-
-### 8. Projects
-Open `projects.html`:
-- Add screenshots to `images/projects/`
-- Replace emoji placeholders with `<img>` tags
-- Update title, description, tags, and GitHub links
-
-### 9. Gallery Photos
-Open `gallery.html`:
-- Add photos to `images/gallery/`
-- Replace each placeholder div with `<img src="images/gallery/yourphoto.jpg" alt="..." />`
-- Set the correct `data-src` on each `.gallery-item`
-- Set `data-category` to: `achievements`, `events`, `workshops`, or `learning`
-
-### 10. Progress Bars (About page)
-In `about.html`, each `.progress-bar-fill` has a `data-width` attribute (e.g., `"85%"`).
-Change these percentages to reflect your actual skill level.
-
-### 11. Stats Counter (Home page)
-In `index.html`, each `.stat-number` has a `data-target` attribute.
-Change the numbers to reflect your actual project count, certificate count, etc.
+### 7. Stats Counter (Home page)
+In `src/pages/Home.jsx`, edit the values inside the `<div className="stat-number">` components.
 
 ---
 
 ## 🎨 Customizing Colors
 
-Open `css/style.css` and find the `:root` block at the top.
+Open `src/styles/style.css` and find the `:root` block at the top.
 
 ```css
 :root {
-  --neon-green: #00ff65;   ← Primary accent color
-  --neon-cyan:  #00e5ff;   ← Secondary accent color
-  --neon-blue:  #0080ff;   ← Tertiary color
-  --bg-primary: #020c06;   ← Main background
-  --bg-secondary: #061510; ← Slightly lighter background
+  --neon-green: #00ff65;   /* Primary accent color */
+  --neon-cyan:  #00e5ff;   /* Secondary accent color */
+  --neon-blue:  #0080ff;   /* Tertiary color */
+  --bg-primary: #020c06;   /* Main background */
+  --bg-secondary: #061510; /* Slightly lighter background */
 }
 ```
 
-Change `--neon-green` and `--neon-cyan` to any colors you like!
-
----
-
-## 📧 Contact Form — Making It Actually Send Emails
-
-By default the form shows a success message but doesn't actually send anything.
-
-**Option A — Formspree (easiest, free):**
-1. Go to https://formspree.io and create an account
-2. Create a new form and get your form ID
-3. In `contact.html`, find the `<form>` tag and change it to:
-   ```html
-   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-   ```
-4. Remove the `id="contact-form"` attribute so the custom handler doesn't interfere
-
-**Option B — EmailJS (free, no backend):**
-Visit https://emailjs.com and follow their integration guide.
+Change `--neon-green` and `--neon-cyan` to any colors you prefer to instantly alter the theme.
 
 ---
 
 ## 🌐 Hosting Your Portfolio
 
-You can host this for FREE on:
-- **GitHub Pages** — Push to a GitHub repo, enable Pages in Settings
-- **Netlify** — Drag and drop the folder at netlify.com/drop
-- **Vercel** — Connect your GitHub repo at vercel.com
+Since this is now a React app powered by Vite, you can host it easily:
 
----
-
-## 🚀 Tips
-
-- Always test on mobile — use browser DevTools (F12) and toggle device view
-- Keep your resume PDF under 2MB
-- Use WebP format for images to keep the site fast
-- The loading screen plays once per page load — this is intentional
+- **Vercel** — Connect your GitHub repo at vercel.com. It will automatically detect Vite and configure the build command (`npm run build`) and output directory (`dist`).
+- **Netlify** — Connect your repo at netlify.com. Same as above, the defaults will work out of the box.
+- **GitHub Pages** — You can deploy to GitHub pages using the `gh-pages` npm package or a GitHub Action workflow.
 
 ---
 
