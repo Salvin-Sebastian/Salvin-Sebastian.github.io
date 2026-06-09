@@ -11,7 +11,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
-const LINKEDIN_URL = process.env.LINKEDIN_PROFILE_URL || 'https://www.linkedin.com/in/salvin-sebastian';
+// Using the exact URN and query parameters provided by the user
+const ENDPOINT_PATH = '/get-extra-profile-data?urn=ACoAAABD0a4B2wblfHunfjGEN-uRLdg2MnWydmk&include_publications=true&include_honors=true&include_patents=true&include_courses=true&include_projects=true&include_volunteers=true&include_organizations=true&include_languages=true&include_certifications=true';
 
 if (!RAPIDAPI_KEY) {
   console.log('No RAPIDAPI_KEY found. Skipping LinkedIn sync.');
@@ -21,7 +22,7 @@ if (!RAPIDAPI_KEY) {
 // Using a popular generic LinkedIn API endpoint on RapidAPI
 const options = {
   hostname: 'fresh-linkedin-profile-data.p.rapidapi.com',
-  path: `/get-linkedin-profile?linkedin_url=${encodeURIComponent(LINKEDIN_URL)}&include_skills=true`,
+  path: ENDPOINT_PATH,
   method: 'GET',
   headers: {
     'X-RapidAPI-Key': RAPIDAPI_KEY,
