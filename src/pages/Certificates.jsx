@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import linkedinData from '../data/linkedin_data.json';
+import portfolioData from '../data/portfolio_data.json';
 
 export default function Certificates() {
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Certificates() {
 
       <section>
         <div className="certs-grid">
-          {linkedinData.certificates.map((cert, index) => (
+          {portfolioData.certificates.map((cert, index) => (
             <div className="cert-card card reveal" key={index}>
               <div className="cert-image">
                 {cert.image ? <img src={cert.image} alt={cert.title} /> : <span>📄</span>}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import linkedinData from '../data/linkedin_data.json';
+import portfolioData from '../data/portfolio_data.json';
 
 export default function Projects() {
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Projects() {
 
       <section>
         <div className="projects-grid">
-          {linkedinData.projects.map((project, index) => (
+          {portfolioData.projects.map((project, index) => (
             <div className="project-card card reveal" key={index}>
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
