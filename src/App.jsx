@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundEffects from './components/BackgroundEffects';
+import FloatingContact from './components/FloatingContact';
 
 
 import Home from './pages/Home';
@@ -35,8 +36,8 @@ function App() {
       </Routes>
       <Footer />
 
-      {/* Floating WhatsApp */}
-      <a href="https://wa.me/918590796458" className="whatsapp-float" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">💬</a>
+      {/* Floating Contact Speed Dial */}
+      <FloatingContact />
     </Router>
   );
 }
