@@ -3,7 +3,12 @@
     {
       "title": "Portfolio Web-Site",
       "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information.",
-      "tags": ["HTML", "CSS", "JavaScript", "React"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ],
       "image": "/assets/images/projects/project1.webp",
       "github_link": "https://github.com/Salvin-Sebastian/Portfolio",
       "demo_link": "https://salvin-sebastian.netlify.app/"
@@ -11,19 +16,108 @@
     {
       "title": "Calculator Webpage",
       "description": "A simple, responsive, and fully functional calculator built using HTML, CSS, and JavaScript.",
-      "tags": ["HTML", "CSS", "JavaScript"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
       "image": "/assets/images/projects/project2.webp",
       "github_link": "https://github.com/Salvin-Sebastian/Calculator-Webpage",
       "demo_link": "https://salvin-sebastian.github.io/Calculator-Webpage/"
+    },
+    {
+      "title": "Project 3",
+      "description": "Description for Project 3. Update this text in portfolio_data.json.",
+      "tags": [
+        "Python",
+        "Security"
+      ],
+      "image": "/assets/images/projects/project3.webp",
+      "github_link": "https://github.com/Salvin-Sebastian",
+      "demo_link": ""
+    },
+    {
+      "title": "Project 4",
+      "description": "Description for Project 4. Update this text in portfolio_data.json.",
+      "tags": [
+        "Java",
+        "Networking"
+      ],
+      "image": "/assets/images/projects/project4.webp",
+      "github_link": "https://github.com/Salvin-Sebastian",
+      "demo_link": ""
     }
   ],
   "certificates": [
     {
-      "title": "Certified Ethical Hacker (CEH)",
-      "organization": "EC-Council",
-      "date": "2025-01-15",
-      "description": "Comprehensive certification covering the latest ethical hacking techniques and cybersecurity methodologies.",
-      "image": "/assets/images/certificates/placeholder.webp"
+      "title": "Cybersecurity Certificate 1",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 1. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert1.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 2",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 2. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert2.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 3",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 3. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert3.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 4",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 4. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert4.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 5",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 5. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert5.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 6",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 6. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert6.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 7",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 7. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert7.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 8",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 8. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert8.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 9",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 9. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert9.webp"
+    },
+    {
+      "title": "Cybersecurity Certificate 10",
+      "organization": "Certification Authority",
+      "date": "2024",
+      "description": "This is a description for Certificate 10. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "image": "/assets/images/certificates/cert10.webp"
     }
   ]
 }
