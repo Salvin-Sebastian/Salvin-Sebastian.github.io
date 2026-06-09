@@ -1,7 +1,7 @@
 import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShieldAlt, FaPython, FaJava, FaJsSquare, FaGlobe, FaChartBar, FaDownload } from 'react-icons/fa';
+import { FaShieldAlt, FaPython, FaJava, FaJsSquare, FaGlobe, FaChartBar, FaDownload, FaCode } from 'react-icons/fa';
 import { SiCplusplus } from 'react-icons/si';
 
 export default function Home() {
@@ -129,6 +129,7 @@ export default function Home() {
           <div className="skill-card card reveal"><span className="skill-icon"><FaGlobe /></span><span className="skill-name">HTML</span></div>
           <div className="skill-card card reveal reveal-delay-1"><span className="skill-icon"><SiCplusplus /></span><span className="skill-name">C </span><span className="skill-cat">Programming</span></div>
           <div className="skill-card card reveal reveal-delay-2"><span className="skill-icon"><FaChartBar /></span><span className="skill-name">Feature </span><span className="skill-cat">Engineering</span></div>
+          <div className="skill-card card reveal reveal-delay-3"><span className="skill-icon"><FaCode /></span><span className="skill-name">Vibe Coding</span></div>
         </div>
 
         <div style={{textAlign: 'center', marginTop: '2.5rem'}}>

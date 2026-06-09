@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { 
   FaShieldAlt, FaPython, FaJava, FaGlobe, FaJsSquare, FaDatabase,
   FaNetworkWired, FaSitemap, FaLock, FaServer, FaSearch, FaWifi,
-  FaKey, FaFlag, FaBox, FaGraduationCap, FaBook 
+  FaKey, FaFlag, FaBox, FaGraduationCap, FaBook, FaCode
 } from 'react-icons/fa';
 import { SiCplusplus } from 'react-icons/si';
 
@@ -53,6 +53,7 @@ export default function Skills() {
             <div className="skill-card card"><span className="skill-icon"><FaJsSquare /></span><span className="skill-name">JavaScript </span><span className="skill-cat">Web</span></div>
             <div className="skill-card card"><span className="skill-icon"><SiCplusplus /></span><span className="skill-name">C & C++ </span><span className="skill-cat">Programming Basics</span></div>
             <div className="skill-card card"><span className="skill-icon"><FaDatabase /></span><span className="skill-name">SQL </span><span className="skill-cat">Database Basics</span></div>
+            <div className="skill-card card"><span className="skill-icon"><FaCode /></span><span className="skill-name">Vibe Coding </span><span className="skill-cat">Web Development</span></div>
           </div>
         </div>
 
