@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -25,6 +26,7 @@ export default function Projects() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Projects" description="Explore the cybersecurity and software development projects built by Salvin Sebastian." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> PROJECTS</div>
         <h1 className="page-hero-title">My <span className="accent">Projects</span></h1>

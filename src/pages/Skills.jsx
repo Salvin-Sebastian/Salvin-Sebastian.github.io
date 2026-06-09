@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -28,6 +29,7 @@ export default function Skills() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Skills" description="Discover the technical skills, programming languages, and security tools mastered by Salvin Sebastian." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> SKILLS</div>
         <h1 className="page-hero-title">My <span className="accent">Arsenal</span></h1>

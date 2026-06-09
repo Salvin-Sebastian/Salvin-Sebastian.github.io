@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import portfolioData from '../data/portfolio_data.json';
@@ -23,6 +24,7 @@ export default function Certificates() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Certificates" description="View cybersecurity and programming certifications earned by Salvin Sebastian." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> CERTIFICATES</div>
         <h1 className="page-hero-title">My <span className="accent">Certifications</span></h1>

@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import BackgroundEffects from './components/BackgroundEffects';
@@ -15,7 +16,8 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Router>
+    <HelmetProvider>
+      <Router>
 
       <BackgroundEffects />
       
@@ -38,7 +40,8 @@ function App() {
 
       {/* Floating Contact Speed Dial */}
       <FloatingContact />
-    </Router>
+      </Router>
+    </HelmetProvider>
   );
 }
 

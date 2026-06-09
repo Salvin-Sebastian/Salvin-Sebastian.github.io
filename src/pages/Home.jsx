@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShieldAlt, FaPython, FaJava, FaJsSquare, FaGlobe, FaChartBar, FaDownload } from 'react-icons/fa';
@@ -59,6 +60,7 @@ export default function Home() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Cybersecurity Student" description="Welcome to the portfolio of Salvin Sebastian, an ethical hacking enthusiast." />
       <section className="hero">
         <div className="hero-content reveal">
           <div className="hero-tag">STUDENT</div>

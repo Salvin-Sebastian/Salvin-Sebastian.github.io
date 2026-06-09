@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaUserAlt, FaDownload } from 'react-icons/fa';
@@ -23,6 +24,7 @@ export default function About() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | About Me" description="Learn more about Salvin Sebastian, his education, and journey in cybersecurity." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> ABOUT</div>
         <h1 className="page-hero-title">About <span className="accent">Me</span></h1>

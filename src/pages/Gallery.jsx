@@ -39,6 +39,7 @@ export default function Gallery() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Gallery" description="A collection of events, workshops, and achievements from Salvin Sebastian." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> GALLERY</div>
         <h1 className="page-hero-title">My <span className="accent">Gallery</span></h1>

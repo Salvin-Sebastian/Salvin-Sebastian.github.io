@@ -1,3 +1,4 @@
+import SEO from '../components/SEO';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram, FaWhatsapp, FaGraduationCap, FaMapMarkerAlt } from 'react-icons/fa';
@@ -23,6 +24,7 @@ export default function Contact() {
 
   return (
     <div className="page-wrapper">
+      <SEO title="Salvin Sebastian | Contact" description="Get in touch with Salvin Sebastian. Reach out via email, LinkedIn, or WhatsApp." />
       <div className="page-hero">
         <div className="breadcrumb"><Link to="/">HOME</Link> <span>/</span> CONTACT</div>
         <h1 className="page-hero-title">Get In <span className="accent">Touch</span></h1>
