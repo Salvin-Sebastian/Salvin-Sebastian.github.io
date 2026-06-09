@@ -10,7 +10,7 @@ export default function About() {
       reveals.forEach((reveal) => {
         const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add('active');
+          reveal.classList.add('revealed');
         }
       });
     };

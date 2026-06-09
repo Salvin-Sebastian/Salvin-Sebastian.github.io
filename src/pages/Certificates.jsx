@@ -11,7 +11,7 @@ export default function Certificates() {
       reveals.forEach((reveal) => {
         const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add('active');
+          reveal.classList.add('revealed');
         }
       });
     };
