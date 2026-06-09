@@ -2,12 +2,13 @@
   "projects": [
     {
       "title": "Portfolio Web-Site",
-      "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information.",
+      "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information. The website features a modern design with smooth navigation and organized sections including About, Skills, Projects, and Contact. It is developed using HTML, CSS, and JavaScript with a focus on clean UI, responsiveness, and user-friendly interaction. The goal of this project is to present my work in a professional way and provide an easy way for visitors to explore my projects and get in touch.",
       "tags": [
         "HTML",
         "CSS",
         "JavaScript",
-        "React"
+        "PHP",
+        "Python"
       ],
       "image": "/assets/images/projects/project1.webp",
       "github_link": "https://github.com/Salvin-Sebastian/Portfolio",
@@ -15,7 +16,7 @@
     },
     {
       "title": "Calculator Webpage",
-      "description": "A simple, responsive, and fully functional calculator built using HTML, CSS, and JavaScript.",
+      "description": "A simple, responsive, and fully functional calculator built using HTML, CSS, and JavaScript. This project demonstrates core front-end development skills such as DOM manipulation, event handling, and logical problem-solving.\n\nThe calculator performs basic arithmetic operations including addition, subtraction, multiplication, and division, with a real-time display for inputs and results. It features a clean and user-friendly interface, designed using CSS for a modern look and responsive layout across different devices.\n\nJavaScript is used to handle user interactions, process calculations, and manage edge cases like invalid inputs. Overall, this project showcases my ability to create interactive and efficient web applications using fundamental web technologies.",
       "tags": [
         "HTML",
         "CSS",
@@ -26,97 +27,99 @@
       "demo_link": "https://salvin-sebastian.github.io/Calculator-Webpage/"
     },
     {
-      "title": "Project 3",
-      "description": "Description for Project 3. Update this text in portfolio_data.json.",
+      "title": "ToDo List",
+      "description": "A dynamic and user-friendly To-Do List web application built using React, HTML, CSS, and JavaScript. This project showcases my ability to develop interactive user interfaces using modern front-end technologies and component-based architecture.\n\nThe application allows users to add, edit, delete, and mark tasks as completed, helping them manage daily activities efficiently. It features real-time updates, ensuring a smooth and responsive user experience without page reloads.\n\nReact is used to manage the application’s state and UI components, enabling efficient rendering and better code organization. CSS is applied to create a clean, responsive design that works seamlessly across different devices.\n\nThis project highlights my understanding of React fundamentals, state management, event handling, and building practical, real-world applications.",
       "tags": [
-        "Python",
-        "Security"
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
       ],
       "image": "/assets/images/projects/project3.webp",
-      "github_link": "https://github.com/Salvin-Sebastian",
-      "demo_link": ""
+      "github_link": "https://github.com/Salvin-Sebastian/React-ToDo-App",
+      "demo_link": "https://salvin-sebastian.github.io/React-ToDo-App/"
     },
     {
-      "title": "Project 4",
-      "description": "Description for Project 4. Update this text in portfolio_data.json.",
+      "title": "Admin Dashboard Frontend",
+      "description": "A modern, responsive Admin Dashboard built using HTML and CSS with a clean layout, smooth UI, and interactive project cards.",
       "tags": [
-        "Java",
-        "Networking"
+        "HTML",
+        "CSS"
       ],
       "image": "/assets/images/projects/project4.webp",
-      "github_link": "https://github.com/Salvin-Sebastian",
-      "demo_link": ""
+      "github_link": "https://github.com/Salvin-Sebastian/Admin-Dashboard",
+      "demo_link": "https://salvin-sebastian.github.io/Admin-Dashboard/"
     }
   ],
   "certificates": [
     {
-      "title": "Cybersecurity Certificate 1",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 1. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Cybersecurity Webinar Participation Certificate",
+      "organization": "Redteam Hacker Academy",
+      "date": "July 2024",
+      "description": "Received a Participation Certificate for attending a Red Team Webinar on Cybersecurity and Ethical Hacking, gaining insights into offensive security techniques and threat assessment.",
       "image": "/assets/images/certificates/cert1.webp"
     },
     {
-      "title": "Cybersecurity Certificate 2",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 2. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Hacktoberfest 2024",
+      "organization": "Inovus Labs",
+      "date": "October 2024",
+      "description": "Actively participated in Hacktoberfest 2024, making meaningful contributions to open-source projects and engaging with developers worldwide.",
       "image": "/assets/images/certificates/cert2.webp"
     },
     {
-      "title": "Cybersecurity Certificate 3",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 3. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Biznova Participation Certificate",
+      "organization": "Inovus Labs",
+      "date": "February 2025",
+      "description": "Received a certificate for participating in BIZNOVA by submitting innovative ideas and presenting solutions to real-world problems.",
       "image": "/assets/images/certificates/cert3.webp"
     },
     {
-      "title": "Cybersecurity Certificate 4",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 4. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "JavaScript Training Completion Certificate",
+      "organization": "Spoken Tutorial, EduPyramids, SINE, IIT Bombay",
+      "date": "April 2025",
+      "description": "Successfully completed JavaScript training from NPTEL, gaining strong foundational knowledge in JavaScript programming and web development.",
       "image": "/assets/images/certificates/cert4.webp"
     },
     {
-      "title": "Cybersecurity Certificate 5",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 5. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "CyberSecurity Industrial Training Certificate",
+      "organization": "ALPHA INNOVATION",
+      "date": "September 2025",
+      "description": "Completed Industrial Training in Cybersecurity, developing foundational knowledge in network security, cyber threats, and security best practices.",
       "image": "/assets/images/certificates/cert5.webp"
     },
     {
-      "title": "Cybersecurity Certificate 6",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 6. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Cybersecurity Internship Completion Certificate",
+      "organization": "ALPHA INNOVATION",
+      "date": "September 2025",
+      "description": "Successfully completed a Cybersecurity Internship, gaining practical knowledge in cyber threats, security practices, and digital protection.Successfully completed a Cybersecurity Internship, gaining practical knowledge in cyber threats, security practices, and digital protection.",
       "image": "/assets/images/certificates/cert6.webp"
     },
     {
-      "title": "Cybersecurity Certificate 7",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 7. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Python Workshop Certificate",
+      "organization": "Inovus Labs",
+      "date": "September 2025",
+      "description": "Received a participation certificate for attending a Python Workshop, enhancing knowledge in Python programming and coding practices.",
       "image": "/assets/images/certificates/cert7.webp"
     },
     {
-      "title": "Cybersecurity Certificate 8",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 8. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Obtain an Appropriate Job - Basic Certification",
+      "organization": "Wadhwani Foundation",
+      "date": "March 2026",
+      "description": "Earned a Certificate of Completion (Basic) for ‘Obtain an Appropriate Job’, developing essential skills for job searching, career planning, and professional growth.",
       "image": "/assets/images/certificates/cert8.webp"
     },
     {
-      "title": "Cybersecurity Certificate 9",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 9. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Cyber Heist - ALL KERALA CYBERSECURITY BOOTCAMP",
+      "organization": "Redteam Hacker Academy",
+      "date": "April 2026",
+      "description": "This is to certify that the participant has successfully completed the 2-Day Bootcamp titled “Cyber Heist – All Kerala Cybersecurity Bootcamp”. The program focused on key areas of modern cybersecurity, including Deepfake technologies, Open-Source Intelligence (OSINT), Penetration Testing, Distributed Denial-of-Service (DDoS) attacks, and practical exposure to tools such as Flipper Zero. The bootcamp also included hands-on sessions involving real-machine attack simulations in controlled environments, providing participants with practical experience in identifying and mitigating cyber threats.",
       "image": "/assets/images/certificates/cert9.webp"
     },
     {
-      "title": "Cybersecurity Certificate 10",
-      "organization": "Certification Authority",
-      "date": "2024",
-      "description": "This is a description for Certificate 10. Please update the title, organization, date, and description in src/data/portfolio_data.json.",
+      "title": "Prompt Engineering Masterclass",
+      "organization": "Redteam Hacker Academy",
+      "date": "March 2026",
+      "description": "A Prompt Engineering Masterclass provided by Great Learning, focused on learning how to effectively interact with AI tools like ChatGPT. It covers techniques such as prompt structuring, iterative refinement, and context-based querying to generate accurate and meaningful outputs. This project demonstrates skills in AI interaction, critical thinking, and optimizing prompts for various real-world applications.",
       "image": "/assets/images/certificates/cert10.webp"
     }
   ]
