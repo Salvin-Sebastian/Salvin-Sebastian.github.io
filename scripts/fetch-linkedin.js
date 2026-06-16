@@ -12,21 +12,21 @@ const __dirname = path.dirname(__filename);
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 // Using the exact URN and query parameters provided by the user
-const ENDPOINT_PATH = '/get-extra-profile-data?urn=ACoAAABD0a4B2wblfHunfjGEN-uRLdg2MnWydmk&include_publications=true&include_honors=true&include_patents=true&include_courses=true&include_projects=true&include_volunteers=true&include_organizations=true&include_languages=true&include_certifications=true';
+const ENDPOINT_PATH = '/get-profile-data-by-url?url=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsalvin-sebastian';
 
 if (!RAPIDAPI_KEY) {
   console.log('No RAPIDAPI_KEY found. Skipping LinkedIn sync.');
   process.exit(0);
 }
 
-// Using a popular generic LinkedIn API endpoint on RapidAPI
+// Using the Real-Time LinkedIn Scraper API
 const options = {
-  hostname: 'fresh-linkedin-profile-data.p.rapidapi.com',
+  hostname: 'linkedin-data-api.p.rapidapi.com',
   path: ENDPOINT_PATH,
   method: 'GET',
   headers: {
     'X-RapidAPI-Key': RAPIDAPI_KEY,
-    'X-RapidAPI-Host': 'fresh-linkedin-profile-data.p.rapidapi.com'
+    'X-RapidAPI-Host': 'linkedin-data-api.p.rapidapi.com'
   }
 };
 
