@@ -13,6 +13,14 @@ import Projects from './pages/Projects';
 import Certificates from './pages/Certificates';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import { useEffect } from 'react';
+
+function NLPRedirect() {
+  useEffect(() => {
+    window.location.replace('/nlp/');
+  }, []);
+  return null;
+}
 
 function App() {
   return (
@@ -35,6 +43,10 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/nlp" element={<NLPRedirect />} />
+        <Route path="/nlp/*" element={<NLPRedirect />} />
+        <Route path="/NLP" element={<NLPRedirect />} />
+        <Route path="/NLP/*" element={<NLPRedirect />} />
       </Routes>
       <Footer />
 

@@ -1,6 +1,21 @@
 {
   "projects": [
     {
+      "title": "Natural Language Processing (NLP) Lab Repository",
+      "description": "Comprehensive practical exam solution suite covering all 42 syllabus programs for Natural Language Processing. Written in minimal, genuine, exam-ready Python with expected outputs. Includes WordNet semantic analysis, speech signal processing, HMM/CRF sequence modeling, PCFG parsing, Lesk WSD, TF-IDF search, ML text classification, and a complete printable A4 PDF manual.",
+      "tags": [
+        "Python",
+        "NLP",
+        "NLTK",
+        "Machine Learning",
+        "Scikit-Learn",
+        "Information Retrieval"
+      ],
+      "image": "/nlp/semantic_network.png",
+      "github_link": "https://github.com/Salvin-Sebastian/Salvin-Sebastian.github.io/tree/main/NLP",
+      "demo_link": "https://salvin-sebastian.me/nlp"
+    },
+    {
       "title": "Portfolio Web-Site",
       "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information. The website features a modern design with smooth navigation and organized sections including About, Skills, Projects, and Contact. It is developed using HTML, CSS, and JavaScript with a focus on clean UI, responsiveness, and user-friendly interaction. The goal of this project is to present my work in a professional way and provide an easy way for visitors to explore my projects and get in touch.",
       "tags": [

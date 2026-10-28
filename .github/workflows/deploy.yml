@@ -34,6 +34,8 @@ jobs:
         run: npm run build
       - name: Copy index to 404 for routing
         run: cp dist/index.html dist/404.html
+      - name: Support case variations for NLP folder
+        run: cp -r dist/nlp dist/NLP
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
