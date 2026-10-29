@@ -13,7 +13,6 @@ export default function Navbar() {
     { path: '/skills', label: 'Skills' },
     { path: '/certificates', label: 'Certificates' },
     { path: '/projects', label: 'Projects' },
-    { path: '/roji/', label: 'Roji', isStatic: true },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
@@ -24,23 +23,13 @@ export default function Navbar() {
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
         {navLinks.map((link) => (
           <li key={link.path}>
-            {link.isStatic ? (
-              <a 
-                href={link.path} 
-                className={location.pathname.startsWith('/roji') || location.pathname.startsWith('/dip') ? 'active' : ''}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link 
-                to={link.path} 
-                className={location.pathname === link.path ? 'active' : ''}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            )}
+            <Link 
+              to={link.path} 
+              className={location.pathname === link.path ? 'active' : ''}
+              onClick={() => setIsOpen(false)}
+            >
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>

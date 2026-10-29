@@ -1,3 +1,6 @@
 User-agent: *
+Disallow: /roji/
+Disallow: /DIP/
+Disallow: /dip/
 Allow: /
 Sitemap: https://salvin-sebastian.me/sitemap.xml
