@@ -16,7 +16,7 @@ python -m pip install -r requirements.txt
 
 echo.
 echo Verifying installation...
-python -c "import cv2, numpy, matplotlib; print('[SUCCESS] DIP Environment Ready! OpenCV:', cv2.__version__, '| NumPy:', numpy.__version__, '| Matplotlib:', matplotlib.__version__)"
+python -c "import cv2, numpy, matplotlib, skimage; print('[SUCCESS] DIP Environment Ready! OpenCV:', cv2.__version__, '| NumPy:', numpy.__version__, '| Matplotlib:', matplotlib.__version__, '| Scikit-Image:', skimage.__version__)"
 
 echo.
 echo ===================================================
