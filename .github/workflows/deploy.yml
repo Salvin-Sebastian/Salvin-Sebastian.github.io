@@ -34,11 +34,13 @@ jobs:
         run: npm run build
       - name: Copy index to 404 for routing
         run: cp dist/index.html dist/404.html
-      - name: Support case variations for Sukam and DIP folders
+      - name: Support case variations and aliases for Roji, Sukam, and DIP folders
         run: |
-          cp -r dist/sukam dist/Sukam 2>/dev/null || true
-          cp -r dist/sukam dist/DIP 2>/dev/null || true
-          cp -r dist/sukam dist/dip 2>/dev/null || true
+          cp -r dist/roji dist/Roji 2>/dev/null || true
+          cp -r dist/roji dist/sukam 2>/dev/null || true
+          cp -r dist/roji dist/Sukam 2>/dev/null || true
+          cp -r dist/roji dist/DIP 2>/dev/null || true
+          cp -r dist/roji dist/dip 2>/dev/null || true
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

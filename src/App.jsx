@@ -15,9 +15,9 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import { useEffect } from 'react';
 
-function SukamRedirect() {
+function RojiRedirect() {
   useEffect(() => {
-    window.location.replace('/sukam/');
+    window.location.replace('/roji/');
   }, []);
   return null;
 }
@@ -43,14 +43,20 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/sukam" element={<SukamRedirect />} />
-        <Route path="/sukam/*" element={<SukamRedirect />} />
-        <Route path="/SUKAM" element={<SukamRedirect />} />
-        <Route path="/SUKAM/*" element={<SukamRedirect />} />
-        <Route path="/dip" element={<SukamRedirect />} />
-        <Route path="/dip/*" element={<SukamRedirect />} />
-        <Route path="/DIP" element={<SukamRedirect />} />
-        <Route path="/DIP/*" element={<SukamRedirect />} />
+        <Route path="/roji" element={<RojiRedirect />} />
+        <Route path="/roji/*" element={<RojiRedirect />} />
+        <Route path="/ROJI" element={<RojiRedirect />} />
+        <Route path="/ROJI/*" element={<RojiRedirect />} />
+        <Route path="/Roji" element={<RojiRedirect />} />
+        <Route path="/Roji/*" element={<RojiRedirect />} />
+        <Route path="/sukam" element={<RojiRedirect />} />
+        <Route path="/sukam/*" element={<RojiRedirect />} />
+        <Route path="/SUKAM" element={<RojiRedirect />} />
+        <Route path="/SUKAM/*" element={<RojiRedirect />} />
+        <Route path="/dip" element={<RojiRedirect />} />
+        <Route path="/dip/*" element={<RojiRedirect />} />
+        <Route path="/DIP" element={<RojiRedirect />} />
+        <Route path="/DIP/*" element={<RojiRedirect />} />
       </Routes>
       <Footer />
 

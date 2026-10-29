@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node scripts/sync-sukam.cjs",
-    "sync:sukam": "node scripts/sync-sukam.cjs",
+    "prebuild": "node scripts/sync-roji.cjs",
+    "sync:roji": "node scripts/sync-roji.cjs",
+    "sync:sukam": "node scripts/sync-roji.cjs",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
