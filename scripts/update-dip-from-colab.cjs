@@ -68,6 +68,6 @@ refAliases.forEach(alias => {
 });
 
 // Update requirements.txt
-const reqContent = 'opencv-python>=4.8.0\nnumpy>=1.24.0\nmatplotlib>=3.7.0\nscikit-image>=0.21.0\n';
+const reqContent = 'opencv-python\nnumpy\nmatplotlib\nscikit-image\n';
 fs.writeFileSync(path.join(dipDir, 'requirements.txt'), reqContent, 'utf8');
 console.log('Updated DIP/requirements.txt');
