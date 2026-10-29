@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node scripts/sync-nlp.cjs",
-    "sync:nlp": "node scripts/sync-nlp.cjs",
+    "prebuild": "node scripts/sync-sukam.cjs",
+    "sync:sukam": "node scripts/sync-sukam.cjs",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

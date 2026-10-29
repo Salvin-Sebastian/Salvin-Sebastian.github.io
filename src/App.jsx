@@ -15,9 +15,9 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import { useEffect } from 'react';
 
-function NLPRedirect() {
+function SukamRedirect() {
   useEffect(() => {
-    window.location.replace('/nlp/');
+    window.location.replace('/sukam/');
   }, []);
   return null;
 }
@@ -43,10 +43,14 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/nlp" element={<NLPRedirect />} />
-        <Route path="/nlp/*" element={<NLPRedirect />} />
-        <Route path="/NLP" element={<NLPRedirect />} />
-        <Route path="/NLP/*" element={<NLPRedirect />} />
+        <Route path="/sukam" element={<SukamRedirect />} />
+        <Route path="/sukam/*" element={<SukamRedirect />} />
+        <Route path="/SUKAM" element={<SukamRedirect />} />
+        <Route path="/SUKAM/*" element={<SukamRedirect />} />
+        <Route path="/dip" element={<SukamRedirect />} />
+        <Route path="/dip/*" element={<SukamRedirect />} />
+        <Route path="/DIP" element={<SukamRedirect />} />
+        <Route path="/DIP/*" element={<SukamRedirect />} />
       </Routes>
       <Footer />
 

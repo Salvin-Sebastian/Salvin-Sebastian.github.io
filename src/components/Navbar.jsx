@@ -13,7 +13,7 @@ export default function Navbar() {
     { path: '/skills', label: 'Skills' },
     { path: '/certificates', label: 'Certificates' },
     { path: '/projects', label: 'Projects' },
-    { path: '/nlp/', label: 'NLP Lab', isStatic: true },
+    { path: '/sukam/', label: 'Sukam', isStatic: true },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
   ];
@@ -27,7 +27,7 @@ export default function Navbar() {
             {link.isStatic ? (
               <a 
                 href={link.path} 
-                className={location.pathname.startsWith('/nlp') ? 'active' : ''}
+                className={location.pathname.startsWith('/sukam') || location.pathname.startsWith('/dip') ? 'active' : ''}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sukam • Digital Image Processing (DIP) Lab | Salvin Sebastian</title>
+  <meta name="description" content="Browse, preview, and download all 25 Digital Image Processing practical programs, complete printable A4 PDF manual, test images, and exam solutions.">
+  <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b10;
+      --bg-card: rgba(18, 22, 34, 0.75);
+      --bg-card-hover: rgba(28, 34, 52, 0.85);
+      --bg-code: #0b0f19;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --text: #cbd5e1;
+      --text-muted: #64748b;
+      --text-heading: #f8fafc;
+      --accent-cyan: #38bdf8;
+      --accent-purple: #a855f7;
+      --accent-blue: #3b82f6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --gradient: linear-gradient(135deg, #38bdf8 0%, #a855f7 100%);
+      --gradient-subtle: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Fira Code', ui-monospace, Consolas, monospace;
+      --radius: 12px;
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient background glow */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -220px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(168, 85, 247, 0.09) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* HEADER */
+    header.site-header {
+      background: rgba(9, 11, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .breadcrumb-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .breadcrumb-nav .site-link {
+      color: var(--text-heading);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+    }
+    .breadcrumb-nav .site-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .breadcrumb-nav .sep {
+      color: var(--text-muted);
+    }
+    .breadcrumb-nav .current-badge {
+      color: var(--accent-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      font-family: var(--font-sans);
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: #0b0f19;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.35);
+    }
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+      color: #000;
+    }
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-heading);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* HERO */
+    .hero-section {
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero-title span {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 740px;
+      margin: 0 auto 32px;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .stat-pill strong {
+      color: var(--accent-cyan);
+      font-size: 18px;
+      font-family: var(--font-mono);
+    }
+    .stat-pill span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-ctas {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* CONTROLS (SEARCH & TABS) */
+    .controls-wrapper {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .controls-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .search-box {
+      flex: 1;
+      min-width: 280px;
+      position: relative;
+    }
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 40px 12px 42px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-heading);
+      font-size: 14px;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+    }
+    .search-clear {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+    }
+    .search-clear:hover {
+      color: var(--text-heading);
+    }
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-heading);
+    }
+    .tab-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-cyan);
+      color: #38bdf8;
+    }
+    .controls-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
+    /* DIRECTORY TABLE */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 60px;
+    }
+    table.file-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    thead th {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 14px 18px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s ease;
+    }
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+    tbody tr:hover {
+      background: var(--bg-card-hover);
+    }
+    td {
+      padding: 14px 18px;
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    .col-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+    .file-icon {
+      font-size: 20px;
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+    .file-link {
+      color: var(--text-heading);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .file-link:hover {
+      color: var(--accent-cyan);
+    }
+    .badge-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .badge-q { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); font-family: var(--font-mono); }
+    .badge-py { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .badge-pdf { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-jpg { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-zip { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-bat { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-doc { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
+
+    .col-desc {
+      color: var(--text);
+      max-width: 480px;
+      font-size: 13.5px;
+    }
+    .col-title {
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 2px;
+    }
+    .col-sub {
+      color: var(--text-muted);
+      font-size: 12.5px;
+    }
+    .col-size {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+    .col-actions {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-left: 6px;
+    }
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-heading);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+    .action-btn.copy:hover {
+      border-color: var(--accent-cyan);
+      color: #38bdf8;
+    }
+    .action-btn.download:hover {
+      border-color: var(--accent-purple);
+      color: #c084fc;
+    }
+
+    /* MODAL CODE / MEDIA VIEWER */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .modal-dialog {
+      background: #0d111a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius);
+      width: 100%;
+      max-width: 900px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      animation: modalIn 0.2s ease-out forwards;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-header {
+      padding: 16px 20px;
+      background: #131826;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .modal-filename {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    pre.code-block {
+      background: #090c13;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      color: #e2e8f0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--accent-cyan);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2000;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOOTER */
+    footer.site-footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      background: rgba(9, 11, 16, 0.95);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 28px; }
+      .col-desc { display: none; }
+      thead th:nth-child(2) { display: none; }
+      .nav-actions .btn-ghost { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <div class="breadcrumb-nav">
+        <a href="/" class="site-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          Salvin Sebastian
+        </a>
+        <span class="sep">/</span>
+        <span class="current-badge">📁 sukam</span>
+      </div>
+      <div class="nav-actions">
+        <a href="/sukam/DIP_Practical_Questions_and_Code.pdf" target="_blank" class="btn btn-ghost">
+          📕 PDF Manual
+        </a>
+        <a href="/sukam/dip_practical_programs.zip" download class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download ZIP
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <section class="hero-section">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        BCA Semester Syllabus • Digital Image Processing (DIP)
+      </div>
+      <h1 class="hero-title">Digital Image Processing <span>Lab Hub</span></h1>
+      <p class="hero-desc">
+        Complete collection of all 25 practical programs, genuine exam-ready Python implementations, expected outputs, complete printable A4 PDF manual, and input test images.
+      </p>
+
+      <div class="stats-row">
+        <div class="stat-pill">
+          <strong>25</strong>
+          <span>Python Practicals</span>
+        </div>
+        <div class="stat-pill">
+          <strong>1 to 25</strong>
+          <span>Syllabus Questions</span>
+        </div>
+        <div class="stat-pill">
+          <strong>A4 PDF</strong>
+          <span>Printable Manual</span>
+        </div>
+        <div class="stat-pill">
+          <strong>100%</strong>
+          <span>Offline Ready</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="/sukam/DIP_Practical_Questions_and_Code.pdf" target="_blank" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Open Complete PDF Manual
+        </a>
+        <a href="/sukam/dip_practical_programs.zip" download class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download ZIP Bundle
+        </a>
+        <a href="https://github.com/Salvin-Sebastian/Salvin-Sebastian.github.io/tree/main/DIP" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          View on GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- SEARCH & CONTROLS -->
+    <div class="controls-wrapper">
+      <div class="controls-top">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by name, question #, topic (e.g. 'fourier', 'sobel', 'histogram', '05', '.pdf')... [/]" autocomplete="off">
+          <button id="searchClear" class="search-clear">✕</button>
+        </div>
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-cat="all">All (32)</button>
+          <button class="tab-btn" data-cat="practicals">Practicals 01-25 (25)</button>
+          <button class="tab-btn" data-cat="manuals">Manual & Docs (2)</button>
+          <button class="tab-btn" data-cat="assets">Test Images (2)</button>
+          <button class="tab-btn" data-cat="config">Setup & ZIP (2)</button>
+        </div>
+      </div>
+      <div class="controls-meta">
+        <span id="resultCount">Showing 32 files</span>
+        <span>Click any row to preview or copy code</span>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-container">
+      <table class="file-table">
+        <thead>
+          <tr>
+            <th style="width: 32%;">File Name</th>
+            <th style="width: 44%;">Topic / Description</th>
+            <th style="width: 10%;">Size</th>
+            <th style="width: 14%; text-align: right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="filesBody">
+          <!-- Populated by JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- MODAL / VIEWER -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span id="modalIcon" class="file-icon">📄</span>
+          <span id="modalFilename" class="modal-filename">filename.py</span>
+          <span id="modalBadge" class="badge-tag badge-py">PY</span>
+        </div>
+        <div class="modal-actions">
+          <button id="modalCopyBtn" class="action-btn copy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            Copy Code
+          </button>
+          <a id="modalDownloadBtn" href="#" download class="action-btn download">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download
+          </a>
+          <button id="modalCloseBtn" class="action-btn">✕</button>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Rendered Code or Media -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toastMsg">Copied to clipboard</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Digital Image Processing (DIP) Lab Solutions • Maintained by <a href="/">Salvin Sebastian</a> • Hosted on GitHub Pages
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DATA & LOGIC -->
+  <script>
+    const fileData = [{"name":"DIP_Practical_Questions_and_Code.pdf","ext":".pdf","size":31008,"sizeFormatted":"30.3 KB","category":"manuals","q":"","title":"Complete Printable PDF Lab Manual","desc":"Complete printable manual containing all 25 syllabus questions, objectives, clean Python code, and expected outputs.","expected":"Ready-to-print A4 PDF document for lab exams and study.","hasCode":false,"code":null},{"name":"dip_practical_programs.zip","ext":".zip","size":255360,"sizeFormatted":"249.4 KB","category":"config","q":"","title":"All-in-One DIP ZIP Bundle","desc":"Complete downloadable archive containing all 25 practical programs, input test images, PDF manual, setup script, and documentation.","expected":"Compressed ZIP archive.","hasCode":false,"code":null},{"name":"README.md","ext":".md","size":4514,"sizeFormatted":"4.4 KB","category":"manuals","q":"","title":"DIP Lab Documentation & Catalog","desc":"Master README index, setup instructions, quick start guide, test image documentation, and practical program catalog.","expected":"Markdown documentation file.","hasCode":true,"code":"# Digital Image Processing (DIP) Practical Programs\n\nBCA Semester Practical Examination - 25 Short & Simple Python Programs.\n\n> **PDF Manual Available:** See [DIP_Practical_Questions_and_Code.pdf](file:///c:/Users/Salvin/Desktop/DIP/DIP_Practical_Questions_and_Code.pdf) for a complete printable manual containing all 25 questions, objectives, code, and expected outputs. Re-generate at any time by running `python generate_pdf.py`.\n\n## Requirements & Installation\n\n### Option 1: 1-Click Setup (Windows)\nDouble-click [`setup.bat`](file:///c:/Users/Salvin/Desktop/DIP/setup.bat) or run:\n```cmd\nsetup.bat\n```\n\n### Option 2: Using pip\nInstall dependencies using pip:\n```bash\npip install -r requirements.txt\n```\n\nVerify your installation:\n```bash\npython -c \"import cv2, numpy, matplotlib; print('DIP Environment Ready!')\"\n```\n\n## Common Input Images\n\n- `image.jpg`: The primary common input image (color photograph) used across practical programs.\n- `reference.jpg`: The reference image used for histogram matching (Program 14).\n\n**To replace input images:**\nPlace any desired JPEG image named `image.jpg` or `reference.jpg` in the project root directory.\n\n## List of 25 Practical Programs\n\n| Q# | Program Title | Filename | Expected Output Description |\n|---|---|---|---|\n| 1 | Image Loading and Grayscale Conversion | `image_loading_grayscale.py` | Color and converted grayscale images |\n| 2 | Sampling and Quantization | `sampling_quantization.py` | Original, downsampled (32x32), and 4-level quantized images |\n| 3 | Spatial and Intensity Resolution | `spatial_intensity_resolution.py` | Original, low spatial resolution, and 1-bit intensity resolution |\n| 4 | Adjacency and Connectivity | `adjacency_connectivity.py` | Component count: 4-connected (5) vs 8-connected (1) |\n| 5 | RGB, CMY, and HSI Color Models | `rgb_cmy_hsi.py` | Original RGB, converted CMY, and true HSI color images |\n| 6 | Hue, Saturation, and Intensity Modification | `hue_saturation_intensity.py` | Original vs modified Hue, Saturation, and Value/Brightness |\n| 7 | Color Histograms | `color_histograms.py` | Intensity frequency curves for Red, Green, and Blue channels |\n| 8 | Image Negative | `image_negative.py` | Original and inverted (negative: s = 255 - r) image |\n| 9 | Log Transformation | `log_transformation.py` | Original and log-transformed dynamic range enhanced image |\n| 10 | Gamma Transformation | `gamma_transformation.py` | Original vs power-law transformed (gamma = 0.5 and 2.0) images |\n| 11 | Piecewise Linear Transformations | `piecewise_linear_transformation.py` | Original, contrast-stretched, and binary thresholded images |\n| 12 | Histogram Equalization | `histogram_equalization.py` | Original and histogram-equalized grayscale image |\n| 13 | Histogram Stretching | `histogram_stretching.py` | Original and min-max stretched contrast-enhanced image |\n| 14 | Histogram Matching | `histogram_matching.py` | Source image matched to reference image histogram |\n| 15 | Spatial Correlation and Convolution | `correlation_convolution.py` | Correlation vs convolution using a 180° flipped kernel |\n| 16 | Smoothing Filters | `smoothing_filters.py` | Original, mean blurred, and Gaussian blurred images |\n| 17 | Laplacian Sharpening | `laplacian_sharpening.py` | Original, Laplacian edge response, and sharpened image |\n| 18 | Unsharp Masking and High-Boost Filtering | `unsharp_highboost.py` | Original, unsharp masked (k=1), and high-boost (k=2) images |\n| 19 | Sobel and Prewitt Edge Detection | `sobel_prewitt.py` | Original, Sobel gradient edges, and Prewitt gradient edges |\n| 20 | 2D Fourier Transform and Inverse DFT | `fourier_transform.py` | Original, centered magnitude spectrum, and reconstructed image |\n| 21 | Frequency-Domain Filters | `frequency_filters.py` | Ideal low-pass filtered and ideal high-pass filtered images |\n| 22 | DFT Properties | `dft_properties.py` | Translation magnitude invariance and spatial scaling properties |\n| 23 | Morphological Operations | `morphological_operations.py` | Binary image with erosion, dilation, opening, and closing |\n| 24 | Hit-or-Miss Transformation | `hit_or_miss.py` | Binary image with detected isolated pixel pattern |\n| 25 | Noise Addition and Removal | `noise_removal.py` | 5 noise types (Gaussian, Salt & Pepper, Rayleigh, Gamma, Exponential) and mean-filtered results |\n\n## How to Run\n\nRun any program from the project directory:\n\n```bash\npython <filename>.py\n```\n\nExample:\n```bash\npython image_loading_grayscale.py\npython histogram_equalization.py\n```\n"},{"name":"image_loading_grayscale.py","ext":".py","size":463,"sizeFormatted":"463 B","category":"practicals","q":"01","title":"Image Loading and Grayscale Conversion","desc":"Reads color photograph and converts to grayscale using OpenCV cvtColor (COLOR_BGR2GRAY). Visualizes RGB and Gray images side-by-side using Matplotlib.","expected":"Original color photograph and converted 8-bit grayscale image side-by-side.","hasCode":true,"code":"# Question 1: Image Loading and Grayscale Conversion\nimport cv2\nimport matplotlib.pyplot as plt\n\ncolor = cv2.imread('image.jpg')\nrgb = cv2.cvtColor(color, cv2.COLOR_BGR2RGB)\ngray = cv2.cvtColor(color, cv2.COLOR_BGR2GRAY)\n\nplt.subplot(1, 2, 1)\nplt.imshow(rgb)\nplt.title('Color')\nplt.axis('off')\n\nplt.subplot(1, 2, 2)\nplt.imshow(gray, cmap='gray')\nplt.title('Grayscale')\nplt.axis('off')\n\nplt.show()\n\n# Output: Displays original color and converted grayscale images\n"},{"name":"sampling_quantization.py","ext":".py","size":634,"sizeFormatted":"634 B","category":"practicals","q":"02","title":"Sampling and Quantization","desc":"Demonstrates spatial downsampling to 32x32 resolution and 4-level gray intensity quantization using integer scaling.","expected":"Original image, 32x32 downsampled image, and 4-level quantized image.","hasCode":true,"code":"# Question 2: Sampling and Quantization\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nsampled = cv2.resize(cv2.resize(img, (32, 32)), (img.shape[1], img.shape[0]), interpolation=cv2.INTER_NEAREST)\nquantized = (img // 64) * 64\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(sampled, cmap='gray'), plt.title('Sampled (32x32)'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(quantized, cmap='gray'), plt.title('Quantized (4 levels)'), plt.axis('off')\nplt.show()\n\n# Output: Original, downsampled, and 4-level quantized images\n"},{"name":"spatial_intensity_resolution.py","ext":".py","size":694,"sizeFormatted":"694 B","category":"practicals","q":"03","title":"Spatial and Intensity Resolution","desc":"Demonstrates low spatial resolution reduction and extreme 1-bit intensity quantization (binary image representation).","expected":"Original, low spatial resolution, and 1-bit binary thresholded image.","hasCode":true,"code":"# Question 3: Spatial and Intensity Resolution\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nlow_spatial = cv2.resize(cv2.resize(img, (64, 64)), (img.shape[1], img.shape[0]), interpolation=cv2.INTER_NEAREST)\nlow_intensity = (img // 128) * 128\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original (8-bit)'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(low_spatial, cmap='gray'), plt.title('Low Spatial (64x64)'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(low_intensity, cmap='gray'), plt.title('Low Intensity (1-bit)'), plt.axis('off')\nplt.show()\n\n# Output: Compares spatial resolution reduction with intensity resolution reduction\n"},{"name":"adjacency_connectivity.py","ext":".py","size":508,"sizeFormatted":"508 B","category":"practicals","q":"04","title":"Adjacency and Connectivity","desc":"Demonstrates pixel adjacency and connectivity on a binary pattern comparing 4-connected (5 components) vs 8-connected (1 component) using cv2.connectedComponents.","expected":"Component count output: 4-connected components = 5 vs 8-connected components = 1.","hasCode":true,"code":"# Question 4: Adjacency and Connectivity\nimport numpy as np\nimport cv2\n\n# 5x5 binary image with diagonal 1s\narr = np.array([\n    [1, 0, 0, 0, 0],\n    [0, 1, 0, 0, 0],\n    [0, 0, 1, 0, 0],\n    [0, 0, 0, 1, 0],\n    [0, 0, 0, 0, 1]], dtype=np.uint8)\n\nn4, _ = cv2.connectedComponents(arr, connectivity=4)\nn8, _ = cv2.connectedComponents(arr, connectivity=8)\n\nprint(f\"4-Connected Components: {n4 - 1}\")\nprint(f\"8-Connected Components: {n8 - 1}\")\n\n# Output:\n# 4-Connected Components: 5\n# 8-Connected Components: 1\n"},{"name":"rgb_cmy_hsi.py","ext":".py","size":911,"sizeFormatted":"911 B","category":"practicals","q":"05","title":"RGB, CMY, and HSI Color Models","desc":"Decomposes and converts RGB color representation into subtractive CMY model (255 - RGB) and cylindrical HSI (Hue, Saturation, Intensity) color space.","expected":"Original RGB image, converted CMY model, and true HSI color representation.","hasCode":true,"code":"# Question 5: RGB, CMY, and HSI Color Models\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg')\nrgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) / 255.0\nr, g, b = rgb[:, :, 0], rgb[:, :, 1], rgb[:, :, 2]\n\n# CMY conversion\ncmy = 1.0 - rgb\n\n# HSI conversion\ni = (r + g + b) / 3.0\nnum = 0.5 * ((r - g) + (r - b))\nden = np.sqrt((r - g)**2 + (r - b) * (g - b)) + 1e-6\ntheta = np.arccos(np.clip(num / den, -1.0, 1.0))\nh = np.where(b > g, 2 * np.pi - theta, theta) / (2 * np.pi)\ns = 1.0 - (3.0 / (r + g + b + 1e-6)) * np.minimum(np.minimum(r, g), b)\nhsi = np.stack([h, s, i], axis=-1)\n\nplt.subplot(1, 3, 1), plt.imshow(rgb), plt.title('RGB'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(cmy), plt.title('CMY'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(hsi), plt.title('HSI'), plt.axis('off')\nplt.show()\n\n# Output: Original RGB, converted CMY, and true HSI color images\n"},{"name":"hue_saturation_intensity.py","ext":".py","size":793,"sizeFormatted":"793 B","category":"practicals","q":"06","title":"Hue, Saturation, and Intensity Modification","desc":"Manipulates individual HSV/HSI components: Hue channel rotation, Saturation boost (1.5x), and Value/Intensity attenuation (0.7x).","expected":"Original color photograph alongside modified Hue, Saturation, and Intensity variations.","hasCode":true,"code":"# Question 6: Hue, Saturation, and Intensity Modification\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg')\nhsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV).astype(np.float32)\n\n# Modify Hue (+30), Saturation (x1.4), Value/Brightness (x1.2)\nhsv[:, :, 0] = (hsv[:, :, 0] + 30) % 180\nhsv[:, :, 1] = np.clip(hsv[:, :, 1] * 1.4, 0, 255)\nhsv[:, :, 2] = np.clip(hsv[:, :, 2] * 1.2, 0, 255)\n\nmodified = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2RGB)\norig = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)\n\nplt.subplot(1, 2, 1), plt.imshow(orig), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(modified), plt.title('Modified H-S-V'), plt.axis('off')\nplt.show()\n\n# Output: Original image and modified Hue, Saturation, and Value/Brightness image\n"},{"name":"color_histograms.py","ext":".py","size":469,"sizeFormatted":"469 B","category":"practicals","q":"07","title":"Color Histograms","desc":"Calculates and plots pixel intensity frequency distribution curves for Red, Green, and Blue channels independently using cv2.calcHist.","expected":"Comparative line plot showing Red, Green, and Blue intensity histograms across 0-255.","hasCode":true,"code":"# Question 7: Color Histograms\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg')\ncolors = ('b', 'g', 'r')\n\nfor i, col in enumerate(colors):\n    hist = cv2.calcHist([img], [i], None, [256], [0, 256])\n    plt.plot(hist, color=col, label=col.upper() + ' channel')\n\nplt.title('Color Histogram')\nplt.xlabel('Pixel Intensity')\nplt.ylabel('Frequency')\nplt.legend()\nplt.show()\n\n# Output: Plots the intensity histograms for Red, Green, and Blue channels\n"},{"name":"image_negative.py","ext":".py","size":362,"sizeFormatted":"362 B","category":"practicals","q":"08","title":"Image Negative","desc":"Performs point-processing digital negative transformation (s = 255 - r) to invert all grayscale pixel values.","expected":"Original grayscale image and its inverted photo-negative counterpart.","hasCode":true,"code":"# Question 8: Image Negative\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nnegative = 255 - img\n\nplt.subplot(1, 2, 1)\nplt.imshow(img, cmap='gray')\nplt.title('Original')\nplt.axis('off')\n\nplt.subplot(1, 2, 2)\nplt.imshow(negative, cmap='gray')\nplt.title('Negative')\nplt.axis('off')\n\nplt.show()\n\n# Output: Original and negative images\n"},{"name":"log_transformation.py","ext":".py","size":504,"sizeFormatted":"504 B","category":"practicals","q":"09","title":"Log Transformation","desc":"Applies dynamic range expansion to low-intensity pixels using logarithmic mapping function: s = c * log(1 + r).","expected":"Original image and enhanced dynamic range log-transformed image highlighting dark details.","hasCode":true,"code":"# Question 9: Log Transformation\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nc = 255.0 / np.log(1.0 + float(np.max(img)))\nlog_img = np.uint8(c * np.log(1.0 + img.astype(np.float32)))\n\nplt.subplot(1, 2, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(log_img, cmap='gray'), plt.title('Log Transformed'), plt.axis('off')\nplt.show()\n\n# Output: Original and log-transformed contrast-enhanced image\n"},{"name":"gamma_transformation.py","ext":".py","size":619,"sizeFormatted":"619 B","category":"practicals","q":"10","title":"Gamma / Power-Law Transformation","desc":"Demonstrates power-law transformation (s = c * r^γ) comparing gamma < 1 (gamma = 0.5, brightened) and gamma > 1 (gamma = 2.0, darkened).","expected":"Original image alongside gamma=0.5 (brightened shadow detail) and gamma=2.0 (compressed highlight).","hasCode":true,"code":"# Question 10: Gamma Transformation\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\ngamma_low = np.uint8(255 * (img / 255.0) ** 0.5)\ngamma_high = np.uint8(255 * (img / 255.0) ** 2.0)\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(gamma_low, cmap='gray'), plt.title('Gamma = 0.5'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(gamma_high, cmap='gray'), plt.title('Gamma = 2.0'), plt.axis('off')\nplt.show()\n\n# Output: Original and power-law (gamma) transformed images with gamma=0.5 and 2.0\n"},{"name":"piecewise_linear_transformation.py","ext":".py","size":744,"sizeFormatted":"744 B","category":"practicals","q":"11","title":"Piecewise Linear Transformations","desc":"Implements contrast stretching to expand dynamic range and binary thresholding for foreground/background segmentation.","expected":"Original image, contrast-stretched dynamic image, and binary thresholded image.","hasCode":true,"code":"# Question 11: Piecewise Linear Transformations\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\n# Contrast stretching: map [50, 180] to [0, 255]\nstretched = np.uint8(np.clip((img - 50) * (255.0 / (180 - 50)), 0, 255))\n# Thresholding: binary piecewise linear\n_, thresh = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY)\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(stretched, cmap='gray'), plt.title('Contrast Stretched'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(thresh, cmap='gray'), plt.title('Thresholded'), plt.axis('off')\nplt.show()\n\n# Output: Original, contrast-stretched, and binary thresholded images\n"},{"name":"histogram_equalization.py","ext":".py","size":411,"sizeFormatted":"411 B","category":"practicals","q":"12","title":"Histogram Equalization","desc":"Flattens and stretches pixel distribution across the full range using cv2.equalizeHist for global contrast optimization.","expected":"Original low-contrast image and dramatically enhanced histogram-equalized image.","hasCode":true,"code":"# Question 12: Histogram Equalization\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nequalized = cv2.equalizeHist(img)\n\nplt.subplot(1, 2, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(equalized, cmap='gray'), plt.title('Equalized'), plt.axis('off')\nplt.show()\n\n# Output: Original and histogram equalized grayscale images\n"},{"name":"histogram_stretching.py","ext":".py","size":468,"sizeFormatted":"468 B","category":"practicals","q":"13","title":"Histogram Stretching","desc":"Normalizes pixel values from min to max across full 0-255 range using linear min-max contrast scaling.","expected":"Original image and linearly contrast-stretched image utilizing complete dynamic range.","hasCode":true,"code":"# Question 13: Histogram Stretching\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nstretched = np.uint8((img - img.min()) * (255.0 / (img.max() - img.min())))\n\nplt.subplot(1, 2, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(stretched, cmap='gray'), plt.title('Stretched'), plt.axis('off')\nplt.show()\n\n# Output: Original and min-max histogram stretched images\n"},{"name":"histogram_matching.py","ext":".py","size":866,"sizeFormatted":"866 B","category":"practicals","q":"14","title":"Histogram Matching (Specification)","desc":"Matches the cumulative distribution function (CDF) of a source image to mirror a specified reference target image histogram.","expected":"Source image, reference target image, and histogram-matched output image.","hasCode":true,"code":"# Question 14: Histogram Matching\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nsrc = cv2.imread('image.jpg', 0)\nref = cv2.imread('reference.jpg', 0)\n\n# Compute cumulative distribution functions (CDFs)\ns_cdf = np.cumsum(np.histogram(src, 256, [0, 256])[0]) / src.size\nr_cdf = np.cumsum(np.histogram(ref, 256, [0, 256])[0]) / ref.size\n\n# Map source intensities to reference intensities\nlut = np.array([np.argmin(np.abs(s_cdf[i] - r_cdf)) for i in range(256)], dtype=np.uint8)\nmatched = lut[src]\n\nplt.subplot(1, 3, 1), plt.imshow(src, cmap='gray'), plt.title('Source'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(ref, cmap='gray'), plt.title('Reference'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(matched, cmap='gray'), plt.title('Matched'), plt.axis('off')\nplt.show()\n\n# Output: Source image matched to the histogram of reference image\n"},{"name":"correlation_convolution.py","ext":".py","size":731,"sizeFormatted":"731 B","category":"practicals","q":"15","title":"Spatial Correlation and Convolution","desc":"Applies 2D spatial filtering comparing correlation with true convolution using a 180° rotated spatial kernel via cv2.filter2D.","expected":"Original image alongside correlation output and 180° flipped convolution output.","hasCode":true,"code":"# Question 15: Spatial Correlation and Convolution\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\n# Asymmetric kernel to distinguish correlation from convolution\nkernel = np.array([[1, 2, 3], [0, 0, 0], [-1, -2, -3]], dtype=np.float32)\n\ncorr = cv2.filter2D(img, -1, kernel)               # Correlation (unflipped)\nconv = cv2.filter2D(img, -1, np.flip(kernel))     # Convolution (180-degree flipped)\n\nplt.subplot(1, 2, 1), plt.imshow(corr, cmap='gray'), plt.title('Correlation'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(conv, cmap='gray'), plt.title('Convolution'), plt.axis('off')\nplt.show()\n\n# Output: Demonstrates spatial correlation and convolution using flipped kernel\n"},{"name":"smoothing_filters.py","ext":".py","size":576,"sizeFormatted":"576 B","category":"practicals","q":"16","title":"Smoothing Filters","desc":"Applies spatial low-pass smoothing filters comparing 5x5 Box Mean Filter (cv2.blur) with 5x5 Gaussian Filter (cv2.GaussianBlur).","expected":"Original image, box mean blurred image, and smooth Gaussian filtered image.","hasCode":true,"code":"# Question 16: Smoothing Filters\nimport cv2\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nmean_blur = cv2.blur(img, (5, 5))\ngaussian_blur = cv2.GaussianBlur(img, (5, 5), 0)\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(mean_blur, cmap='gray'), plt.title('Mean Filter'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(gaussian_blur, cmap='gray'), plt.title('Gaussian Filter'), plt.axis('off')\nplt.show()\n\n# Output: Original, mean blurred, and Gaussian blurred smoothed images\n"},{"name":"laplacian_sharpening.py","ext":".py","size":595,"sizeFormatted":"595 B","category":"practicals","q":"17","title":"Laplacian Sharpening","desc":"Calculates second-order spatial derivative (cv2.Laplacian) and adds edge gradients back to original image to achieve sharp edges.","expected":"Original image, Laplacian second-derivative edge response, and sharpened composite image.","hasCode":true,"code":"# Question 17: Laplacian Sharpening\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nlap = cv2.Laplacian(img, cv2.CV_64F)\nsharpened = np.uint8(np.clip(img - lap, 0, 255))\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(np.abs(lap), cmap='gray'), plt.title('Laplacian'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(sharpened, cmap='gray'), plt.title('Sharpened'), plt.axis('off')\nplt.show()\n\n# Output: Original, Laplacian edge response, and Laplacian sharpened image\n"},{"name":"unsharp_highboost.py","ext":".py","size":735,"sizeFormatted":"735 B","category":"practicals","q":"18","title":"Unsharp Masking and High-Boost Filtering","desc":"Computes unsharp mask by subtracting blurred image, applying standard unsharp masking (k=1) and high-boost filtering (k=2).","expected":"Original image, standard unsharp masked image (k=1), and amplified high-boost image (k=2).","hasCode":true,"code":"# Question 18: Unsharp Masking and High-Boost Filtering\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nblur = cv2.GaussianBlur(img, (5, 5), 0)\nmask = img.astype(np.float32) - blur.astype(np.float32)\n\nunsharp = np.uint8(np.clip(img + 1.0 * mask, 0, 255))\nhighboost = np.uint8(np.clip(img + 2.0 * mask, 0, 255))\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(unsharp, cmap='gray'), plt.title('Unsharp (k=1)'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(highboost, cmap='gray'), plt.title('High-Boost (k=2)'), plt.axis('off')\nplt.show()\n\n# Output: Original, unsharp masked, and high-boost filtered images\n"},{"name":"sobel_prewitt.py","ext":".py","size":978,"sizeFormatted":"978 B","category":"practicals","q":"19","title":"Sobel and Prewitt Edge Detection","desc":"Computes first-order gradient approximations in X and Y directions using Sobel 3x3 operators and Prewitt gradient kernels.","expected":"Original image alongside Sobel gradient edges and Prewitt gradient edges.","hasCode":true,"code":"# Question 19: Sobel and Prewitt Edge Detection\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\n\n# Sobel Operator\nsx = cv2.Sobel(img, cv2.CV_64F, 1, 0, ksize=3)\nsy = cv2.Sobel(img, cv2.CV_64F, 0, 1, ksize=3)\nsobel = np.uint8(np.clip(np.hypot(sx, sy), 0, 255))\n\n# Prewitt Operator\npx_k = np.array([[-1, 0, 1], [-1, 0, 1], [-1, 0, 1]], dtype=np.float32)\npy_k = np.array([[-1, -1, -1], [0, 0, 0], [1, 1, 1]], dtype=np.float32)\npx = cv2.filter2D(img, cv2.CV_64F, px_k)\npy = cv2.filter2D(img, cv2.CV_64F, py_k)\nprewitt = np.uint8(np.clip(np.hypot(px, py), 0, 255))\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(sobel, cmap='gray'), plt.title('Sobel Edges'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(prewitt, cmap='gray'), plt.title('Prewitt Edges'), plt.axis('off')\nplt.show()\n\n# Output: Original image along with Sobel and Prewitt edge detections\n"},{"name":"fourier_transform.py","ext":".py","size":764,"sizeFormatted":"764 B","category":"practicals","q":"20","title":"2D Fourier Transform and Inverse DFT","desc":"Computes 2D Fast Fourier Transform (np.fft.fft2), centers DC component with fftshift, computes log magnitude spectrum, and performs inverse DFT.","expected":"Original image, centered 2D Fourier magnitude spectrum, and reconstructed spatial image.","hasCode":true,"code":"# Question 20: 2D Fourier Transform and Inverse DFT\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nf = np.fft.fft2(img)\nfshift = np.fft.fftshift(f)\nmagnitude_spectrum = 20 * np.log(np.abs(fshift) + 1)\n\n# Inverse DFT\ninv_shift = np.fft.ifftshift(fshift)\nreconstructed = np.abs(np.fft.ifft2(inv_shift))\n\nplt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(1, 3, 2), plt.imshow(magnitude_spectrum, cmap='gray'), plt.title('Magnitude Spectrum'), plt.axis('off')\nplt.subplot(1, 3, 3), plt.imshow(reconstructed, cmap='gray'), plt.title('Reconstructed'), plt.axis('off')\nplt.show()\n\n# Output: Original image, centered magnitude spectrum, and reconstructed image via IDFT\n"},{"name":"frequency_filters.py","ext":".py","size":826,"sizeFormatted":"826 B","category":"practicals","q":"21","title":"Frequency-Domain Filters","desc":"Constructs Ideal Low-Pass Filter (ILPF) and Ideal High-Pass Filter (IHPF) masks in frequency domain to demonstrate frequency filtering.","expected":"Ideal low-pass filtered (blurred) image and ideal high-pass filtered (edge extracted) image.","hasCode":true,"code":"# Question 21: Frequency-Domain Filters\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\nrows, cols = img.shape\ncrow, ccol = rows // 2, cols // 2\n\n# Distance from center\ny, x = np.ogrid[:rows, :cols]\nmask_lp = np.uint8(np.sqrt((x - ccol)**2 + (y - crow)**2) <= 30)\nmask_hp = 1 - mask_lp\n\nfshift = np.fft.fftshift(np.fft.fft2(img))\nlow_pass = np.abs(np.fft.ifft2(np.fft.ifftshift(fshift * mask_lp)))\nhigh_pass = np.abs(np.fft.ifft2(np.fft.ifftshift(fshift * mask_hp)))\n\nplt.subplot(1, 2, 1), plt.imshow(low_pass, cmap='gray'), plt.title('Ideal Low Pass'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(high_pass, cmap='gray'), plt.title('Ideal High Pass'), plt.axis('off')\nplt.show()\n\n# Output: Low-pass filtered (smooth) and high-pass filtered (edges) frequency-domain images\n"},{"name":"dft_properties.py","ext":".py","size":1352,"sizeFormatted":"1.3 KB","category":"practicals","q":"22","title":"DFT Properties","desc":"Demonstrates key 2D DFT mathematical properties: translation magnitude invariance and spatial downscaling frequency expansion.","expected":"Fourier spectrum demonstrating spatial shift invariance and scaling reciprocal property.","hasCode":true,"code":"# Question 22: DFT Properties\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\n\n# Translation property: spatial shift leaves magnitude spectrum invariant\nshifted = np.roll(np.roll(img, 50, axis=0), 50, axis=1)\n\n# Scaling property: spatial compression broadens frequency spectrum\nscaled = cv2.resize(cv2.resize(img, (img.shape[1] // 2, img.shape[0] // 2)), (img.shape[1], img.shape[0]))\n\nmag_orig = 20 * np.log(np.abs(np.fft.fftshift(np.fft.fft2(img))) + 1)\nmag_shift = 20 * np.log(np.abs(np.fft.fftshift(np.fft.fft2(shifted))) + 1)\nmag_scale = 20 * np.log(np.abs(np.fft.fftshift(np.fft.fft2(scaled))) + 1)\n\nplt.subplot(2, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')\nplt.subplot(2, 3, 2), plt.imshow(shifted, cmap='gray'), plt.title('Translated'), plt.axis('off')\nplt.subplot(2, 3, 3), plt.imshow(scaled, cmap='gray'), plt.title('Scaled (Compressed)'), plt.axis('off')\nplt.subplot(2, 3, 4), plt.imshow(mag_orig, cmap='gray'), plt.title('Orig Spectrum'), plt.axis('off')\nplt.subplot(2, 3, 5), plt.imshow(mag_shift, cmap='gray'), plt.title('Shift Spectrum'), plt.axis('off')\nplt.subplot(2, 3, 6), plt.imshow(mag_scale, cmap='gray'), plt.title('Scaled Spectrum'), plt.axis('off')\nplt.show()\n\n# Output: Demonstrates DFT translation (magnitude invariance) and scaling properties\n"},{"name":"morphological_operations.py","ext":".py","size":987,"sizeFormatted":"987 B","category":"practicals","q":"23","title":"Morphological Operations","desc":"Performs fundamental mathematical morphology operations using 5x5 rectangular structuring element: Erosion, Dilation, Opening, and Closing.","expected":"Binary input image alongside Erosion, Dilation, Opening (noise removal), and Closing (gap fill).","hasCode":true,"code":"# Question 23: Morphological Operations\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nimg = cv2.imread('image.jpg', 0)\n_, binary = cv2.threshold(img, 128, 255, cv2.THRESH_BINARY)\nkernel = np.ones((5, 5), np.uint8)\n\nerosion = cv2.erode(binary, kernel)\ndilation = cv2.dilate(binary, kernel)\nopening = cv2.morphologyEx(binary, cv2.MORPH_OPEN, kernel)\nclosing = cv2.morphologyEx(binary, cv2.MORPH_CLOSE, kernel)\n\nplt.subplot(2, 3, 1), plt.imshow(binary, cmap='gray'), plt.title('Binary'), plt.axis('off')\nplt.subplot(2, 3, 2), plt.imshow(erosion, cmap='gray'), plt.title('Erosion'), plt.axis('off')\nplt.subplot(2, 3, 3), plt.imshow(dilation, cmap='gray'), plt.title('Dilation'), plt.axis('off')\nplt.subplot(2, 3, 4), plt.imshow(opening, cmap='gray'), plt.title('Opening'), plt.axis('off')\nplt.subplot(2, 3, 5), plt.imshow(closing, cmap='gray'), plt.title('Closing'), plt.axis('off')\nplt.show()\n\n# Output: Binary image with erosion, dilation, opening, and closing operations\n"},{"name":"hit_or_miss.py","ext":".py","size":778,"sizeFormatted":"778 B","category":"practicals","q":"24","title":"Hit-or-Miss Transformation","desc":"Executes binary Hit-or-Miss morphological operator (cv2.morphologyEx) with composite dual kernel to detect isolated pixel patterns.","expected":"Original binary test image and single detected target pixel pattern response.","hasCode":true,"code":"# Question 24: Hit-or-Miss Transformation\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# 10x10 binary image with a pattern\nimg = np.zeros((10, 10), dtype=np.uint8)\nimg[2:5, 2:5] = 255   # 3x3 block\nimg[7, 7] = 255       # isolated point\n\n# Structuring element to find an isolated 1 surrounded by 0s\nkernel = np.array([\n    [-1, -1, -1],\n    [-1,  1, -1],\n    [-1, -1, -1]], dtype=np.int8)\n\noutput = cv2.morphologyEx(img, cv2.MORPH_HITMISS, kernel)\n\nplt.subplot(1, 2, 1), plt.imshow(img, cmap='gray'), plt.title('Binary Image'), plt.axis('off')\nplt.subplot(1, 2, 2), plt.imshow(output, cmap='gray'), plt.title('Hit-or-Miss (Isolated Point)'), plt.axis('off')\nplt.show()\n\n# Output: Detects an isolated single pixel using hit-or-miss morphological transformation\n"},{"name":"noise_removal.py","ext":".py","size":1091,"sizeFormatted":"1.1 KB","category":"practicals","q":"25","title":"Noise Addition and Removal","desc":"Generates 5 distinct statistical noise models (Gaussian, Salt & Pepper, Rayleigh, Gamma, Exponential) and performs mean filter restoration.","expected":"5 corrupted noise models alongside spatial averaging filter restored counterparts.","hasCode":true,"code":"# Question 25: Noise Addition and Removal\nimport cv2\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nnp.random.seed(42)\nimg = cv2.imread('image.jpg', 0).astype(np.float32)\n\n# Generate noise types\nrand = np.random.rand(*img.shape)\nsp = img.copy()\nsp[rand < 0.02] = 0\nsp[rand > 0.98] = 255\n\nnoises = {\n    'Gaussian': img + np.random.normal(0, 25, img.shape),\n    'Salt & Pepper': sp,\n    'Rayleigh': img + np.random.rayleigh(20, img.shape),\n    'Gamma': img + np.random.gamma(2, 10, img.shape),\n    'Exponential': img + np.random.exponential(15, img.shape)\n}\n\nplt.figure(figsize=(10, 4))\nfor i, (name, noisy) in enumerate(noises.items()):\n    noisy_img = np.uint8(np.clip(noisy, 0, 255))\n    filtered = cv2.blur(noisy_img, (5, 5))\n    plt.subplot(2, 5, i + 1), plt.imshow(noisy_img, cmap='gray'), plt.title(name), plt.axis('off')\n    plt.subplot(2, 5, i + 6), plt.imshow(filtered, cmap='gray'), plt.title(name + ' Filtered'), plt.axis('off')\n\nplt.tight_layout()\nplt.show()\n\n# Output: 5 noise types (Gaussian, Salt-and-Pepper, Rayleigh, Gamma, Exponential) and their mean-filtered results\n"},{"name":"image.jpg","ext":".jpg","size":109663,"sizeFormatted":"107.1 KB","category":"assets","q":"","title":"Primary Test Input Image","desc":"High-quality color photograph (109 KB) used as the primary input across all practical exam programs.","expected":"JPEG color test image.","hasCode":false,"code":null},{"name":"reference.jpg","ext":".jpg","size":109777,"sizeFormatted":"107.2 KB","category":"assets","q":"","title":"Histogram Matching Reference Image","desc":"Target color photograph (109 KB) whose histogram distribution is matched in Question 14.","expected":"JPEG reference test image.","hasCode":false,"code":null},{"name":"requirements.txt","ext":".txt","size":1569,"sizeFormatted":"1.5 KB","category":"config","q":"","title":"Python Dependencies","desc":"Python package requirements file specifying opencv-python, numpy, and matplotlib.","expected":"Pip requirements definition.","hasCode":true,"code":"# ==============================================================================\n# DIGITAL IMAGE PROCESSING (DIP) - PRACTICAL EXAM REQUIREMENTS & SETUP GUIDE\n# Course: BCA Semester Practical Examination\n# Tested & Verified on: Python 3.10 - 3.13 (Windows / macOS / Linux)\n# ==============================================================================\n#\n# QUICK SETUP COMMANDS (Run in terminal/command prompt inside this directory):\n# ------------------------------------------------------------------------------\n# 1. (Optional) Create a virtual environment:\n#      python -m venv venv\n#\n# 2. Activate virtual environment:\n#      Windows (Command Prompt):  venv\\Scripts\\activate.bat\n#      Windows (PowerShell):      venv\\Scripts\\Activate.ps1\n#      macOS / Linux:             source venv/bin/activate\n#\n# 3. Upgrade pip to the latest version:\n#      python -m pip install --upgrade pip\n#\n# 4. Install all required dependencies:\n#      pip install -r requirements.txt\n#\n# 5. Verify the installation:\n#      python -c \"import cv2, numpy, matplotlib; print('DIP Environment Ready! OpenCV:', cv2.__version__)\"\n#\n# 6. Run any of the 25 DIP programs:\n#      python image_loading_grayscale.py\n#      python histogram_equalization.py\n#      python sobel_prewitt.py\n# ==============================================================================\n\n# Core Digital Image Processing Libraries\nopencv-python>=4.8.0,<=4.13.0.92\nnumpy>=1.24.0,<=2.3.4\nmatplotlib>=3.7.0,<=3.11.0\n\n# Supporting Image, Numerical & Documentation Libraries\nPillow>=10.0.0\nscipy>=1.11.0\nreportlab>=4.0.0\n"},{"name":"setup.bat","ext":".bat","size":890,"sizeFormatted":"890 B","category":"config","q":"","title":"1-Click Windows Setup Script","desc":"Automated batch script to create virtual environment, upgrade pip, install dependencies, and verify setup on Windows.","expected":"Windows batch automation script.","hasCode":true,"code":"@echo off\necho ===================================================\necho Setting up Digital Image Processing Environment...\necho ===================================================\n\npython --version\nif errorlevel 1 (\n    echo [ERROR] Python is not installed or not in PATH. Please install Python.\n    pause\n    exit /b 1\n)\n\necho.\necho Installing required packages from requirements.txt...\npython -m pip install -r requirements.txt\n\necho.\necho Verifying installation...\npython -c \"import cv2, numpy, matplotlib; print('[SUCCESS] DIP Environment Ready! OpenCV:', cv2.__version__, '| NumPy:', numpy.__version__, '| Matplotlib:', matplotlib.__version__)\"\n\necho.\necho ===================================================\necho Setup complete! You can now run any of the 25 DIP programs:\necho Example: python image_loading_grayscale.py\necho ===================================================\npause\n"}];
+
+    function getIcon(file) {
+      if (file.name.endsWith('.pdf')) return '📕';
+      if (file.name.endsWith('.zip')) return '📦';
+      if (file.name.endsWith('.py')) return '🐍';
+      if (file.name.endsWith('.jpg') || file.name.endsWith('.png')) return '🖼️';
+      if (file.name.endsWith('.md')) return '📝';
+      if (file.name.endsWith('.bat')) return '⚙️';
+      return '📄';
+    }
+
+    function getBadgeClass(ext) {
+      if (ext === '.py') return 'badge-py';
+      if (ext === '.pdf') return 'badge-pdf';
+      if (ext === '.jpg' || ext === '.png') return 'badge-jpg';
+      if (ext === '.zip') return 'badge-zip';
+      if (ext === '.bat') return 'badge-bat';
+      return 'badge-doc';
+    }
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    const filesBody = document.getElementById('filesBody');
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const resultCount = document.getElementById('resultCount');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalFilename = document.getElementById('modalFilename');
+    const modalBadge = document.getElementById('modalBadge');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalBody = document.getElementById('modalBody');
+    const modalCopyBtn = document.getElementById('modalCopyBtn');
+    const modalDownloadBtn = document.getElementById('modalDownloadBtn');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const toast = document.getElementById('toast');
+    const toastMsg = document.getElementById('toastMsg');
+
+    let currentModalFile = null;
+
+    function showToast(text) {
+      toastMsg.innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function copyToClipboard(text, label) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied ' + (label || 'content') + ' to clipboard!');
+      }).catch(() => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Copied ' + (label || 'content') + ' to clipboard!');
+      });
+    }
+
+    function renderTable() {
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = fileData.filter(item => {
+        const matchesCategory = currentFilter === 'all' || item.category === currentFilter;
+        const matchesQuery = !q ||
+          item.name.toLowerCase().includes(q) ||
+          item.title.toLowerCase().includes(q) ||
+          item.desc.toLowerCase().includes(q) ||
+          (item.q && ('q' + item.q).toLowerCase().includes(q)) ||
+          (item.q && item.q.includes(q));
+        return matchesCategory && matchesQuery;
+      });
+
+      resultCount.innerText = 'Showing ' + filtered.length + ' of ' + fileData.length + ' files';
+
+      if (filtered.length === 0) {
+        filesBody.innerHTML = '<tr><td colspan="4" style="text-align:center; padding: 40px; color: var(--text-muted);">No matching files found. Try a different search term.</td></tr>';
+        return;
+      }
+
+      filesBody.innerHTML = filtered.map(item => {
+        const icon = getIcon(item);
+        const badge = getBadgeClass(item.ext);
+        const extName = item.ext.replace('.', '').toUpperCase() || 'FILE';
+
+        return `
+          <tr data-file="${item.name}">
+            <td>
+              <div class="col-name">
+                <span class="file-icon">${icon}</span>
+                <span class="file-link" onclick="openFileViewer('${item.name}')">${item.name}</span>
+                ${item.q ? `<span class="badge-tag badge-q">Q${item.q}</span>` : ''}
+                <span class="badge-tag ${badge}">${extName}</span>
+              </div>
+            </td>
+            <td>
+              <div class="col-desc">
+                <div class="col-title">${item.title}</div>
+                <div class="col-sub">${item.desc}</div>
+              </div>
+            </td>
+            <td>
+              <div class="col-size">${item.sizeFormatted}</div>
+            </td>
+            <td class="col-actions">
+              <button class="action-btn" onclick="openFileViewer('${item.name}')" title="Preview file">
+                👁️ View
+              </button>
+              ${item.hasCode ? `
+                <button class="action-btn copy" onclick="copyFileCode('${item.name}')" title="Copy code">
+                  📋 Copy
+                </button>
+              ` : ''}
+              <a href="/sukam/${item.name}" download class="action-btn download" title="Download raw file">
+                ⬇️ Download
+              </a>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function openFileViewer(fileName) {
+      const file = fileData.find(f => f.name === fileName);
+      if (!file) return;
+
+      currentModalFile = file;
+      modalFilename.innerText = file.name;
+      modalIcon.innerText = getIcon(file);
+      modalBadge.className = 'badge-tag ' + getBadgeClass(file.ext);
+      modalBadge.innerText = file.q ? ('Q' + file.q + ' • ' + file.ext.replace('.', '').toUpperCase()) : file.ext.replace('.', '').toUpperCase();
+      modalDownloadBtn.href = '/sukam/' + file.name;
+
+      if (file.hasCode && file.code) {
+        modalCopyBtn.style.display = 'inline-flex';
+        modalBody.innerHTML =
+          '<div style="margin-bottom: 14px;">' +
+            '<h3 style="color:#f8fafc; font-size:16px; margin-bottom:4px;">' + file.title + '</h3>' +
+            '<p style="color:#94a3b8; font-size:13px;">' + file.desc + '</p>' +
+            (file.expected ? '<p style="color:#38bdf8; font-size:12px; margin-top:4px;"><strong>Expected Output:</strong> ' + file.expected + '</p>' : '') +
+          '</div>' +
+          '<pre class="code-block"><code>' + escapeHtml(file.code) + '</code></pre>';
+      } else if (file.ext === '.pdf') {
+        modalCopyBtn.style.display = 'none';
+        modalBody.innerHTML = '<div style="text-align:center; padding: 40px;">' +
+          '<h3 style="color:#f8fafc; margin-bottom:12px;">' + file.title + '</h3>' +
+          '<p style="color:#94a3b8; margin-bottom: 24px;">' + file.desc + '</p>' +
+          '<div style="display:flex; justify-content:center; gap:12px;">' +
+            '<a href="/sukam/' + file.name + '" target="_blank" class="btn btn-primary">Open Full PDF in New Tab</a>' +
+            '<a href="/sukam/' + file.name + '" download class="btn btn-ghost">Download PDF (' + file.sizeFormatted + ')</a>' +
+          '</div>' +
+          '</div>';
+      } else if (file.ext === '.jpg' || file.ext === '.png') {
+        modalCopyBtn.style.display = 'none';
+        modalBody.innerHTML = '<div style="text-align:center; padding: 20px;">' +
+          '<h3 style="color:#f8fafc; margin-bottom:8px;">' + file.title + ' (' + file.name + ')</h3>' +
+          '<p style="color:#94a3b8; font-size:13px; margin-bottom:18px;">' + file.desc + '</p>' +
+          '<img src="/sukam/' + file.name + '" alt="' + file.name + '" style="max-width:100%; max-height:480px; border-radius:8px; border:1px solid rgba(255,255,255,0.15); box-shadow:0 8px 30px rgba(0,0,0,0.6);">' +
+          '<div style="margin-top:16px;"><a href="/sukam/' + file.name + '" download class="btn btn-ghost">Download Image (' + file.sizeFormatted + ')</a></div>' +
+          '</div>';
+      } else if (file.ext === '.zip') {
+        modalCopyBtn.style.display = 'none';
+        modalBody.innerHTML = '<div style="text-align:center; padding: 40px;">' +
+          '<h3 style="color:#f8fafc; margin-bottom:12px;">All-in-One DIP ZIP Bundle (' + file.sizeFormatted + ')</h3>' +
+          '<p style="color:#94a3b8; margin-bottom: 24px;">Contains all 25 practical Python programs, input photographs (image.jpg, reference.jpg), PDF manual, setup.bat, and requirements.</p>' +
+          '<a href="/sukam/' + file.name + '" download class="btn btn-primary">Download Complete ZIP Archive</a>' +
+          '</div>';
+      } else {
+        modalCopyBtn.style.display = 'none';
+        modalBody.innerHTML = '<div style="text-align:center; padding: 40px;"><p style="color:#94a3b8;">Binary file. Please use the download button above.</p></div>';
+      }
+
+      modalBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('open');
+      document.body.style.overflow = 'auto';
+      currentModalFile = null;
+    }
+
+    function copyFileCode(fileName) {
+      const file = fileData.find(f => f.name === fileName);
+      if (file && file.code) {
+        copyToClipboard(file.code, file.name);
+      }
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Event Listeners
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      searchClear.style.display = searchQuery ? 'block' : 'none';
+      renderTable();
+    });
+
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      searchClear.style.display = 'none';
+      renderTable();
+      searchInput.focus();
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.cat;
+        renderTable();
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    modalCopyBtn.addEventListener('click', () => {
+      if (currentModalFile && currentModalFile.code) {
+        copyToClipboard(currentModalFile.code, currentModalFile.name);
+      }
+    });
+
+    // Keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+      if (e.key === '/' && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+    });
+
+    // Initial render
+    renderTable();
+  </script>
+</body>
+</html>
