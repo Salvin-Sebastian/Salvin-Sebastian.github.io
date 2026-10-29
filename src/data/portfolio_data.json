@@ -1,20 +1,6 @@
 {
   "projects": [
     {
-      "title": "Digital Image Processing (DIP) Lab Repository",
-      "description": "Comprehensive practical exam solution suite covering all 25 syllabus programs for Digital Image Processing in Python. Features minimal, genuine, exam-ready implementations with expected outputs. Includes image transformations, spatial & frequency domain filtering, 2D Fourier Transform, histogram operations, edge detection, morphological processing, noise removal, and complete printable A4 PDF manual.",
-      "tags": [
-        "Python",
-        "Digital Image Processing",
-        "OpenCV",
-        "NumPy",
-        "Matplotlib"
-      ],
-      "image": "/roji/image.jpg",
-      "github_link": "https://github.com/Salvin-Sebastian/Salvin-Sebastian.github.io/tree/main/DIP",
-      "demo_link": "https://salvin-sebastian.me/roji"
-    },
-    {
       "title": "Portfolio Web-Site",
       "description": "This is a responsive personal portfolio website created to showcase my web development skills, projects, and professional information. The website features a modern design with smooth navigation and organized sections including About, Skills, Projects, and Contact. It is developed using HTML, CSS, and JavaScript with a focus on clean UI, responsiveness, and user-friendly interaction. The goal of this project is to present my work in a professional way and provide an easy way for visitors to explore my projects and get in touch.",
       "tags": [

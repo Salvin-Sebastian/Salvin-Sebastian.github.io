@@ -1326,27 +1326,5 @@ const html = `<!DOCTYPE html>
 `;
 
 fs.writeFileSync(path.join(destRojiDir, 'index.html'), html, 'utf8');
-
-// Also ensure public/sukam/index.html redirects to /roji/
-const destSukamDir = path.join(rootDir, 'public', 'sukam');
-if (!fs.existsSync(destSukamDir)) {
-  fs.mkdirSync(destSukamDir, { recursive: true });
-}
-const redirectHtml = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/roji/">
-  <link rel="canonical" href="https://salvin-sebastian.me/roji/">
-  <title>Redirecting to Roji...</title>
-  <script>window.location.replace('/roji/');</script>
-</head>
-<body>
-  <p>Redirecting to <a href="/roji/">Roji</a>...</p>
-</body>
-</html>
-`;
-fs.writeFileSync(path.join(destSukamDir, 'index.html'), redirectHtml, 'utf8');
-console.log('Successfully generated public/sukam/index.html redirect to /roji/');
-
 console.log('Successfully generated public/roji/index.html');
+

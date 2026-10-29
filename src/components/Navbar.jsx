@@ -27,7 +27,7 @@ export default function Navbar() {
             {link.isStatic ? (
               <a 
                 href={link.path} 
-                className={location.pathname.startsWith('/roji') || location.pathname.startsWith('/sukam') || location.pathname.startsWith('/dip') ? 'active' : ''}
+                className={location.pathname.startsWith('/roji') || location.pathname.startsWith('/dip') ? 'active' : ''}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}

@@ -6,7 +6,6 @@
   "scripts": {
     "prebuild": "node scripts/sync-roji.cjs",
     "sync:roji": "node scripts/sync-roji.cjs",
-    "sync:sukam": "node scripts/sync-roji.cjs",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

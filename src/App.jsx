@@ -49,10 +49,6 @@ function App() {
         <Route path="/ROJI/*" element={<RojiRedirect />} />
         <Route path="/Roji" element={<RojiRedirect />} />
         <Route path="/Roji/*" element={<RojiRedirect />} />
-        <Route path="/sukam" element={<RojiRedirect />} />
-        <Route path="/sukam/*" element={<RojiRedirect />} />
-        <Route path="/SUKAM" element={<RojiRedirect />} />
-        <Route path="/SUKAM/*" element={<RojiRedirect />} />
         <Route path="/dip" element={<RojiRedirect />} />
         <Route path="/dip/*" element={<RojiRedirect />} />
         <Route path="/DIP" element={<RojiRedirect />} />
