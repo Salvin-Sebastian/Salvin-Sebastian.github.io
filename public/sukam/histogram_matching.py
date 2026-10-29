@@ -1,22 +1,40 @@
-# Question 14: Histogram Matching
+# Question 14: Apply Histogram Matching (Specification) with a Reference Image
 import cv2
-import numpy as np
 import matplotlib.pyplot as plt
-
-src = cv2.imread('image.jpg', 0)
-ref = cv2.imread('reference.jpg', 0)
-
-# Compute cumulative distribution functions (CDFs)
-s_cdf = np.cumsum(np.histogram(src, 256, [0, 256])[0]) / src.size
-r_cdf = np.cumsum(np.histogram(ref, 256, [0, 256])[0]) / ref.size
-
-# Map source intensities to reference intensities
-lut = np.array([np.argmin(np.abs(s_cdf[i] - r_cdf)) for i in range(256)], dtype=np.uint8)
-matched = lut[src]
-
-plt.subplot(1, 3, 1), plt.imshow(src, cmap='gray'), plt.title('Source'), plt.axis('off')
-plt.subplot(1, 3, 2), plt.imshow(ref, cmap='gray'), plt.title('Reference'), plt.axis('off')
-plt.subplot(1, 3, 3), plt.imshow(matched, cmap='gray'), plt.title('Matched'), plt.axis('off')
+from skimage.exposure import match_histograms
+# Read source image
+source = cv2.imread("image.jpeg", cv2.IMREAD_GRAYSCALE)
+# Read reference image
+reference = cv2.imread("image1.jpg", cv2.IMREAD_GRAYSCALE)
+# Perform histogram matching
+matched = match_histograms(source, reference)
+# Convert to uint8
+matched = matched.astype("uint8")
+# Display images
+plt.figure(figsize=(12, 8))
+plt.subplot(2, 3, 1)
+plt.imshow(source, cmap="gray")
+plt.title("Source Image")
+plt.axis("off")
+plt.subplot(2, 3, 2)
+plt.imshow(reference, cmap="gray")
+plt.title("Reference Image")
+plt.axis("off")
+plt.subplot(2, 3, 3)
+plt.imshow(matched, cmap="gray")
+plt.title("Matched Image")
+plt.axis("off")
+# Source histogram
+plt.subplot(2, 3, 4)
+plt.hist(source.ravel(), 256, [0, 256])
+plt.title("Source Histogram")
+# Reference histogram
+plt.subplot(2, 3, 5)
+plt.hist(reference.ravel(), 256, [0, 256])
+plt.title("Reference Histogram")
+# Matched histogram
+plt.subplot(2, 3, 6)
+plt.hist(matched.ravel(), 256, [0, 256])
+plt.title("Matched Histogram")
+plt.tight_layout()
 plt.show()
-
-# Output: Source image matched to the histogram of reference image

@@ -1,21 +1,37 @@
-# Question 6: Hue, Saturation, and Intensity Modification
+# Question 6: Modify hue, saturation, and intensity and display the output
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('image.jpg')
-hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV).astype(np.float32)
+# Read image
+img = cv2.imread("sample1.jpeg")
 
-# Modify Hue (+30), Saturation (x1.4), Value/Brightness (x1.2)
-hsv[:, :, 0] = (hsv[:, :, 0] + 30) % 180
-hsv[:, :, 1] = np.clip(hsv[:, :, 1] * 1.4, 0, 255)
-hsv[:, :, 2] = np.clip(hsv[:, :, 2] * 1.2, 0, 255)
+# Convert BGR to HSV
+hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-modified = cv2.cvtColor(hsv.astype(np.uint8), cv2.COLOR_HSV2RGB)
-orig = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+# Modify Hue, Saturation, and Intensity(Value)
+hsv[:, :, 0] = (hsv[:, :, 0] + 20) % 180      # Hue
+hsv[:, :, 1] = np.clip(hsv[:, :, 1] + 50, 0, 255)  # Saturation
+hsv[:, :, 2] = np.clip(hsv[:, :, 2] + 40, 0, 255)  # Intensity/Value
 
-plt.subplot(1, 2, 1), plt.imshow(orig), plt.title('Original'), plt.axis('off')
-plt.subplot(1, 2, 2), plt.imshow(modified), plt.title('Modified H-S-V'), plt.axis('off')
+# Convert back to BGR
+output = cv2.cvtColor(hsv, cv2.COLOR_HSV2BGR)
+
+# Convert BGR to RGB for displaying with matplotlib
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+output_rgb = cv2.cvtColor(output, cv2.COLOR_BGR2RGB)
+
+# Display images
+plt.figure(figsize=(10, 5))
+
+plt.subplot(1, 2, 1)
+plt.imshow(img_rgb)
+plt.title("Original Image")
+plt.axis("off")
+
+plt.subplot(1, 2, 2)
+plt.imshow(output_rgb)
+plt.title("Modified HSV Image")
+plt.axis("off")
+
 plt.show()
-
-# Output: Original image and modified Hue, Saturation, and Value/Brightness image

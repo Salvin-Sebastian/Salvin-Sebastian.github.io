@@ -1,18 +1,45 @@
-# Question 18: Unsharp Masking and High-Boost Filtering
+# Question 18: Perform unsharp masking and high-boost filtering
 import cv2
-import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('image.jpg', 0)
-blur = cv2.GaussianBlur(img, (5, 5), 0)
-mask = img.astype(np.float32) - blur.astype(np.float32)
+# Read the image
+image = cv2.imread("sample.jpeg")   # Replace with your image path
 
-unsharp = np.uint8(np.clip(img + 1.0 * mask, 0, 255))
-highboost = np.uint8(np.clip(img + 2.0 * mask, 0, 255))
+# Convert BGR to RGB
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-plt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')
-plt.subplot(1, 3, 2), plt.imshow(unsharp, cmap='gray'), plt.title('Unsharp (k=1)'), plt.axis('off')
-plt.subplot(1, 3, 3), plt.imshow(highboost, cmap='gray'), plt.title('High-Boost (k=2)'), plt.axis('off')
+# -----------------------------
+# Unsharp Masking
+# -----------------------------
+blur = cv2.GaussianBlur(image_rgb, (5,5), 0)
+unsharp = cv2.addWeighted(image_rgb, 1.5, blur, -0.5, 0)
+
+# -----------------------------
+# High-Boost Filtering
+# -----------------------------
+A = 2.0  # High-boost factor (A > 1)
+
+high_boost = cv2.addWeighted(image_rgb, A, blur, -(A-1), 0)
+
+# -----------------------------
+# Display Results
+# -----------------------------
+plt.figure(figsize=(15,5))
+
+plt.subplot(1,3,1)
+plt.imshow(image_rgb)
+plt.title("Original Image")
+plt.axis("off")
+
+plt.subplot(1,3,2)
+plt.imshow(unsharp)
+plt.title("Unsharp Masking")
+plt.axis("off")
+
+plt.subplot(1,3,3)
+plt.imshow(high_boost)
+plt.title("High-Boost Filter")
+plt.axis("off")
+
+plt.tight_layout()
 plt.show()
-
-# Output: Original, unsharp masked, and high-boost filtered images

@@ -1,33 +1,93 @@
-# Question 25: Noise Addition and Removal
+# Question 25: Add different types of noise (Gaussian, Salt & Pepper, etc.) and apply mean filters
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-np.random.seed(42)
-img = cv2.imread('image.jpg', 0).astype(np.float32)
+# Read image
+img = cv2.imread("sample.jpeg", 0)
 
-# Generate noise types
-rand = np.random.rand(*img.shape)
-sp = img.copy()
-sp[rand < 0.02] = 0
-sp[rand > 0.98] = 255
+# Normalize image
+img_float = img.astype(np.float32) / 255.0
 
-noises = {
-    'Gaussian': img + np.random.normal(0, 25, img.shape),
-    'Salt & Pepper': sp,
-    'Rayleigh': img + np.random.rayleigh(20, img.shape),
-    'Gamma': img + np.random.gamma(2, 10, img.shape),
-    'Exponential': img + np.random.exponential(15, img.shape)
-}
+# -------------------------
+# 1. Gaussian Noise
+# -------------------------
+gaussian = img_float + np.random.normal(0, 0.1, img_float.shape)
+gaussian = np.clip(gaussian, 0, 1)
 
-plt.figure(figsize=(10, 4))
-for i, (name, noisy) in enumerate(noises.items()):
-    noisy_img = np.uint8(np.clip(noisy, 0, 255))
-    filtered = cv2.blur(noisy_img, (5, 5))
-    plt.subplot(2, 5, i + 1), plt.imshow(noisy_img, cmap='gray'), plt.title(name), plt.axis('off')
-    plt.subplot(2, 5, i + 6), plt.imshow(filtered, cmap='gray'), plt.title(name + ' Filtered'), plt.axis('off')
+# -------------------------
+# 2. Salt & Pepper Noise
+# -------------------------
+sp = img_float.copy()
+
+salt_prob = 0.02
+pepper_prob = 0.02
+
+salt = np.random.rand(*img.shape) < salt_prob
+pepper = np.random.rand(*img.shape) < pepper_prob
+
+sp[salt] = 1
+sp[pepper] = 0
+
+# -------------------------
+# 3. Rayleigh Noise
+# -------------------------
+rayleigh = img_float + np.random.rayleigh(0.1, img.shape)
+rayleigh = np.clip(rayleigh, 0, 1)
+
+# -------------------------
+# 4. Gamma Noise
+# -------------------------
+gamma = img_float + np.random.gamma(2, 0.05, img.shape)
+gamma = np.clip(gamma, 0, 1)
+
+# -------------------------
+# 5. Exponential Noise
+# -------------------------
+expo = img_float + np.random.exponential(0.05, img.shape)
+expo = np.clip(expo, 0, 1)
+
+# -------------------------
+# Mean Filter
+# -------------------------
+def mean_filter(image):
+    image = np.uint8(image * 255)
+    return cv2.blur(image, (3,3))
+
+gaussian_f = mean_filter(gaussian)
+sp_f = mean_filter(sp)
+rayleigh_f = mean_filter(rayleigh)
+gamma_f = mean_filter(gamma)
+expo_f = mean_filter(expo)
+
+# -------------------------
+# Display
+# -------------------------
+titles = [
+    "Original",
+    "Gaussian", "Gaussian + Mean",
+    "Salt & Pepper", "S&P + Mean",
+    "Rayleigh", "Rayleigh + Mean",
+    "Gamma", "Gamma + Mean",
+    "Exponential", "Exponential + Mean"
+]
+
+images = [
+    img,
+    np.uint8(gaussian*255), gaussian_f,
+    np.uint8(sp*255), sp_f,
+    np.uint8(rayleigh*255), rayleigh_f,
+    np.uint8(gamma*255), gamma_f,
+    np.uint8(expo*255), expo_f
+]
+
+plt.figure(figsize=(15,12))
+
+for i in range(len(images)):
+    plt.subplot(4,3,i+1)
+    plt.imshow(images[i], cmap='gray')
+    plt.title(titles[i])
+    plt.axis("off")
 
 plt.tight_layout()
 plt.show()
-
-# Output: 5 noise types (Gaussian, Salt-and-Pepper, Rayleigh, Gamma, Exponential) and their mean-filtered results

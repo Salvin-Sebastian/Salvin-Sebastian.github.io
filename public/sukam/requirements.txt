@@ -1,40 +1,4 @@
-# ==============================================================================
-# DIGITAL IMAGE PROCESSING (DIP) - PRACTICAL EXAM REQUIREMENTS & SETUP GUIDE
-# Course: BCA Semester Practical Examination
-# Tested & Verified on: Python 3.10 - 3.13 (Windows / macOS / Linux)
-# ==============================================================================
-#
-# QUICK SETUP COMMANDS (Run in terminal/command prompt inside this directory):
-# ------------------------------------------------------------------------------
-# 1. (Optional) Create a virtual environment:
-#      python -m venv venv
-#
-# 2. Activate virtual environment:
-#      Windows (Command Prompt):  venv\Scripts\activate.bat
-#      Windows (PowerShell):      venv\Scripts\Activate.ps1
-#      macOS / Linux:             source venv/bin/activate
-#
-# 3. Upgrade pip to the latest version:
-#      python -m pip install --upgrade pip
-#
-# 4. Install all required dependencies:
-#      pip install -r requirements.txt
-#
-# 5. Verify the installation:
-#      python -c "import cv2, numpy, matplotlib; print('DIP Environment Ready! OpenCV:', cv2.__version__)"
-#
-# 6. Run any of the 25 DIP programs:
-#      python image_loading_grayscale.py
-#      python histogram_equalization.py
-#      python sobel_prewitt.py
-# ==============================================================================
-
-# Core Digital Image Processing Libraries
-opencv-python>=4.8.0,<=4.13.0.92
-numpy>=1.24.0,<=2.3.4
-matplotlib>=3.7.0,<=3.11.0
-
-# Supporting Image, Numerical & Documentation Libraries
-Pillow>=10.0.0
-scipy>=1.11.0
-reportlab>=4.0.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scikit-image>=0.21.0

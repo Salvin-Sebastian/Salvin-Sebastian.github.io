@@ -1,14 +1,44 @@
-# Question 16: Smoothing Filters
+# Question 16: Apply smoothing filters (mean, Gaussian)
 import cv2
 import matplotlib.pyplot as plt
 
-img = cv2.imread('image.jpg', 0)
-mean_blur = cv2.blur(img, (5, 5))
-gaussian_blur = cv2.GaussianBlur(img, (5, 5), 0)
+# Read the image
+image = cv2.imread("sample.jpeg")  # Replace with your image path
 
-plt.subplot(1, 3, 1), plt.imshow(img, cmap='gray'), plt.title('Original'), plt.axis('off')
-plt.subplot(1, 3, 2), plt.imshow(mean_blur, cmap='gray'), plt.title('Mean Filter'), plt.axis('off')
-plt.subplot(1, 3, 3), plt.imshow(gaussian_blur, cmap='gray'), plt.title('Gaussian Filter'), plt.axis('off')
+# Convert BGR to RGB (for displaying with matplotlib)
+image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+# -----------------------------
+# Mean (Average) Filter
+# -----------------------------
+mean_filtered = cv2.blur(image_rgb, (5, 5))
+# or
+# mean_filtered = cv2.boxFilter(image_rgb, -1, (5,5))
+
+# -----------------------------
+# Gaussian Filter
+# -----------------------------
+gaussian_filtered = cv2.GaussianBlur(image_rgb, (5, 5), 0)
+
+# -----------------------------
+# Display Results
+# -----------------------------
+plt.figure(figsize=(15, 5))
+
+plt.subplot(1, 3, 1)
+plt.imshow(image_rgb)
+plt.title("Original Image")
+plt.axis("off")
+
+plt.subplot(1, 3, 2)
+plt.imshow(mean_filtered)
+plt.title("Mean Filter")
+plt.axis("off")
+
+plt.subplot(1, 3, 3)
+plt.imshow(gaussian_filtered)
+plt.title("Gaussian Filter")
+plt.axis("off")
+
+plt.tight_layout()
 plt.show()
-
-# Output: Original, mean blurred, and Gaussian blurred smoothed images

@@ -1,17 +1,40 @@
-# Question 15: Spatial Correlation and Convolution
+# Question 15: Perform spatial correlation and convolution using custom kernels
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-
-img = cv2.imread('image.jpg', 0)
-# Asymmetric kernel to distinguish correlation from convolution
-kernel = np.array([[1, 2, 3], [0, 0, 0], [-1, -2, -3]], dtype=np.float32)
-
-corr = cv2.filter2D(img, -1, kernel)               # Correlation (unflipped)
-conv = cv2.filter2D(img, -1, np.flip(kernel))     # Convolution (180-degree flipped)
-
-plt.subplot(1, 2, 1), plt.imshow(corr, cmap='gray'), plt.title('Correlation'), plt.axis('off')
-plt.subplot(1, 2, 2), plt.imshow(conv, cmap='gray'), plt.title('Convolution'), plt.axis('off')
+# Read the image in grayscale
+image = cv2.imread("image.jpeg", 0)
+# Define a custom kernel
+kernel = np.array([
+    [1, 2, 1],
+    [0, 0, 0],
+    [-1, -2, -1]
+], dtype=np.float32)
+# -----------------------------
+# Spatial Correlation
+# -----------------------------
+correlation = cv2.filter2D(image, -1, kernel)
+# -----------------------------
+# Spatial Convolution
+# -----------------------------
+# Flip the kernel by 180 degrees
+flipped_kernel = cv2.flip(kernel, -1)
+convolution = cv2.filter2D(image, -1, flipped_kernel)
+# -----------------------------
+# Display Results
+# -----------------------------
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 3, 1)
+plt.imshow(image, cmap="gray")
+plt.title("Original Image")
+plt.axis("off")
+plt.subplot(1, 3, 2)
+plt.imshow(correlation, cmap="gray")
+plt.title("Spatial Correlation")
+plt.axis("off")
+plt.subplot(1, 3, 3)
+plt.imshow(convolution, cmap="gray")
+plt.title("Spatial Convolution")
+plt.axis("off")
+plt.tight_layout()
 plt.show()
-
-# Output: Demonstrates spatial correlation and convolution using flipped kernel

@@ -1,20 +1,27 @@
-# Question 8: Image Negative
+# Question 8: Image negative transformation
 import cv2
 import matplotlib.pyplot as plt
 
-img = cv2.imread('image.jpg', 0)
-negative = 255 - img
+# Read image
+img = cv2.imread("sample2.jpeg")
 
-plt.subplot(1, 2, 1)
-plt.imshow(img, cmap='gray')
-plt.title('Original')
-plt.axis('off')
+# Convert BGR to RGB
+img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-plt.subplot(1, 2, 2)
-plt.imshow(negative, cmap='gray')
-plt.title('Negative')
-plt.axis('off')
+# Negative transformation
+negative = 255 - img_rgb
+
+# Display images
+plt.figure(figsize=(10,5))
+
+plt.subplot(1,2,1)
+plt.imshow(img_rgb)
+plt.title("Original Image")
+plt.axis("off")
+
+plt.subplot(1,2,2)
+plt.imshow(negative)
+plt.title("Negative Image")
+plt.axis("off")
 
 plt.show()
-
-# Output: Original and negative images
