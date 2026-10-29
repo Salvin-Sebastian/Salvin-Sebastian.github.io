@@ -18,8 +18,15 @@ if (!fs.existsSync(destSukamDir)) {
 console.log('Syncing files from DIP/ to public/sukam/...');
 const files = fs.readdirSync(srcDipDir);
 
+// Ensure no stale notebook exists in public/sukam
+const staleNb = path.join(destSukamDir, 'DIP_Practical_Notebook.ipynb');
+if (fs.existsSync(staleNb)) {
+  fs.unlinkSync(staleNb);
+}
+
 let copiedCount = 0;
 for (const file of files) {
+  if (file.endsWith('.ipynb')) continue;
   const srcFile = path.join(srcDipDir, file);
   const destFile = path.join(destSukamDir, file);
   const stat = fs.statSync(srcFile);

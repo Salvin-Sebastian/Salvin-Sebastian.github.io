@@ -184,11 +184,6 @@ const topics = {
     desc: 'Automated batch script to create virtual environment, upgrade pip, install dependencies, and verify setup on Windows.',
     expected: 'Windows batch automation script.'
   },
-  'DIP_Practical_Notebook.ipynb': {
-    title: 'Google Colab / Jupyter Practical Notebook',
-    desc: 'Official interactive Colab notebook containing all 25 practical experiments with executable cells, markdown theory, and output plots.',
-    expected: 'Interactive IPython Notebook (.ipynb).'
-  },
   'image.jpg': {
     title: 'Primary Test Input Image',
     desc: 'High-quality color photograph (109 KB) used as the primary input across practical exam programs.',
@@ -251,15 +246,13 @@ function getQuestionNum(file) {
 }
 
 // Sort files logically:
-// 1. Colab Notebook & PDF manual
+// 1. PDF manual
 // 2. ZIP archive
 // 3. README.md
 // 4. Programs 1 to 25 in question order
 // 5. Test images
 // 6. Config / batch scripts
 fileList.sort((a, b) => {
-  if (a.endsWith('.ipynb')) return -1;
-  if (b.endsWith('.ipynb')) return 1;
   if (a.endsWith('.pdf')) return -1;
   if (b.endsWith('.pdf')) return 1;
   if (a.endsWith('.zip')) return -1;
@@ -292,12 +285,12 @@ for (const file of fileList) {
 
   let category = 'other';
   if (ext === '.py') category = 'practicals';
-  else if (ext === '.pdf' || ext === '.ipynb' || file === 'README.md') category = 'manuals';
+  else if (ext === '.pdf' || file === 'README.md') category = 'manuals';
   else if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') category = 'assets';
   else if (ext === '.bat' || ext === '.txt' || ext === '.zip') category = 'config';
 
   let content = null;
-  // If text file under 150KB (and not ipynb binary json), read content for immediate in-browser viewing
+  // If text file under 150KB, read content for immediate in-browser viewing
   if (stat.size < 150 * 1024 && (ext === '.py' || ext === '.txt' || ext === '.md' || ext === '.bat')) {
     content = fs.readFileSync(fullPath, 'utf8');
   }
@@ -744,7 +737,6 @@ const html = `<!DOCTYPE html>
     .badge-q { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); font-family: var(--font-mono); }
     .badge-py { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
     .badge-pdf { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
-    .badge-ipynb { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
     .badge-jpg { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
     .badge-zip { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
     .badge-bat { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
@@ -1087,7 +1079,6 @@ const html = `<!DOCTYPE html>
 
     function getIcon(file) {
       if (file.name.endsWith('.pdf')) return '📕';
-      if (file.name.endsWith('.ipynb')) return '📓';
       if (file.name.endsWith('.zip')) return '📦';
       if (file.name.endsWith('.py')) return '🐍';
       if (file.name.endsWith('.jpg') || file.name.endsWith('.jpeg') || file.name.endsWith('.png')) return '🖼️';
@@ -1099,7 +1090,6 @@ const html = `<!DOCTYPE html>
     function getBadgeClass(ext) {
       if (ext === '.py') return 'badge-py';
       if (ext === '.pdf') return 'badge-pdf';
-      if (ext === '.ipynb') return 'badge-ipynb';
       if (ext === '.jpg' || ext === '.jpeg' || ext === '.png') return 'badge-jpg';
       if (ext === '.zip') return 'badge-zip';
       if (ext === '.bat') return 'badge-bat';
@@ -1236,16 +1226,6 @@ const html = `<!DOCTYPE html>
           '<div style="display:flex; justify-content:center; gap:12px;">' +
             '<a href="/sukam/' + file.name + '" target="_blank" class="btn btn-primary">Open Full PDF in New Tab</a>' +
             '<a href="/sukam/' + file.name + '" download class="btn btn-ghost">Download PDF (' + file.sizeFormatted + ')</a>' +
-          '</div>' +
-          '</div>';
-      } else if (file.ext === '.ipynb') {
-        modalCopyBtn.style.display = 'none';
-        modalBody.innerHTML = '<div style="text-align:center; padding: 40px;">' +
-          '<h3 style="color:#f8fafc; margin-bottom:12px;">' + file.title + ' (' + file.sizeFormatted + ')</h3>' +
-          '<p style="color:#94a3b8; margin-bottom: 24px;">' + file.desc + '</p>' +
-          '<div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">' +
-            '<a href="https://colab.research.google.com/drive/1y1l0ZW1dSomURpR7ua82RdYiO66fxsO8" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open in Google Colab 🚀</a>' +
-            '<a href="/sukam/' + file.name + '" download class="btn btn-ghost">Download .ipynb File</a>' +
           '</div>' +
           '</div>';
       } else if (file.ext === '.jpg' || file.ext === '.jpeg' || file.ext === '.png') {

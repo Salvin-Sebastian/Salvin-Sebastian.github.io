@@ -2,7 +2,7 @@
 
 BCA Semester Practical Examination - 25 Python Lab Programs.
 
-> **Google Colab Notebook:** [Open in Google Colab](https://colab.research.google.com/drive/1y1l0ZW1dSomURpR7ua82RdYiO66fxsO8) or run [`DIP_Practical_Notebook.ipynb`](file:///d:/Documents/MuLearn/Github/Salvin-Sebastian.github.io/DIP/DIP_Practical_Notebook.ipynb) locally.
+> **Google Colab Notebook:** [Open in Google Colab](https://colab.research.google.com/drive/1y1l0ZW1dSomURpR7ua82RdYiO66fxsO8).
 > **PDF Manual Available:** See [`DIP_Practical_Questions_and_Code.pdf`](file:///d:/Documents/MuLearn/Github/Salvin-Sebastian.github.io/DIP/DIP_Practical_Questions_and_Code.pdf) for a printable manual containing syllabus questions, objectives, code, and expected outputs.
 
 ## Requirements & Installation

@@ -49,10 +49,6 @@ mapping.forEach(m => {
   console.log(`Updated DIP/${m.file} (Question ${m.q})`);
 });
 
-// Copy notebook to DIP folder
-fs.copyFileSync(nbPath, path.join(dipDir, 'DIP_Practical_Notebook.ipynb'));
-console.log('Saved DIP/DIP_Practical_Notebook.ipynb');
-
 // Ensure image aliases exist so all scripts find their target image
 const imageSrc = path.join(dipDir, 'image.jpg');
 const refSrc = path.join(dipDir, 'reference.jpg');
