@@ -3,7 +3,7 @@ const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..');
 const nbPath = path.join(process.env.USERPROFILE, '.gemini/antigravity-ide/brain/efb8f371-d5f9-4d8c-89c9-01bf2302a5f6/scratch/colab_notebook.ipynb');
-const dipDir = path.join(rootDir, 'DIP');
+const dipDir = path.join(rootDir, 'roji');
 
 if (!fs.existsSync(nbPath)) {
   console.error('Notebook not found at:', nbPath);

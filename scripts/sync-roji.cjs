@@ -3,11 +3,11 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const rootDir = path.resolve(__dirname, '..');
-const srcDipDir = path.join(rootDir, 'DIP');
+const srcRojiDir = path.join(rootDir, 'roji');
 const destRojiDir = path.join(rootDir, 'public', 'roji');
 
-if (!fs.existsSync(srcDipDir)) {
-  console.error('Source DIP directory not found at:', srcDipDir);
+if (!fs.existsSync(srcRojiDir)) {
+  console.error('Source roji directory not found at:', srcRojiDir);
   process.exit(1);
 }
 
@@ -15,8 +15,8 @@ if (!fs.existsSync(destRojiDir)) {
   fs.mkdirSync(destRojiDir, { recursive: true });
 }
 
-console.log('Syncing files from DIP/ to public/roji/...');
-const files = fs.readdirSync(srcDipDir);
+console.log('Syncing files from roji/ to public/roji/...');
+const files = fs.readdirSync(srcRojiDir);
 
 // Ensure no stale notebook exists in public/roji
 const staleNb = path.join(destRojiDir, 'DIP_Practical_Notebook.ipynb');
@@ -27,7 +27,7 @@ if (fs.existsSync(staleNb)) {
 let copiedCount = 0;
 for (const file of files) {
   if (file.endsWith('.ipynb')) continue;
-  const srcFile = path.join(srcDipDir, file);
+  const srcFile = path.join(srcRojiDir, file);
   const destFile = path.join(destRojiDir, file);
   const stat = fs.statSync(srcFile);
 
@@ -41,13 +41,13 @@ console.log(`Copied ${copiedCount} files to public/roji/`);
 // Create ZIP bundle of all files
 try {
   const zipPath = path.join(destRojiDir, 'dip_practical_programs.zip');
-  console.log('Creating ZIP archive of DIP folder...');
+  console.log('Creating ZIP archive of roji folder...');
   if (process.platform === 'win32') {
     // Windows PowerShell Compress-Archive
-    execSync(`powershell -NoProfile -Command "Compress-Archive -Path '${srcDipDir}\\*' -DestinationPath '${zipPath}' -Force"`, { stdio: 'inherit' });
+    execSync(`powershell -NoProfile -Command "Compress-Archive -Path '${srcRojiDir}\\*' -DestinationPath '${zipPath}' -Force"`, { stdio: 'inherit' });
   } else {
     // Unix zip
-    execSync(`cd "${srcDipDir}" && zip -r "${zipPath}" ./*`, { stdio: 'inherit' });
+    execSync(`cd "${srcRojiDir}" && zip -r "${zipPath}" ./*`, { stdio: 'inherit' });
   }
   console.log('ZIP archive created successfully at public/roji/dip_practical_programs.zip');
 } catch (err) {
