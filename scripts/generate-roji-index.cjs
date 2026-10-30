@@ -164,16 +164,6 @@ const topics = {
     desc: 'Generates 5 distinct statistical noise models (Gaussian, Salt & Pepper, Rayleigh, Gamma, Exponential) and performs mean filter restoration.',
     expected: '5 corrupted noise models alongside spatial averaging filter restored counterparts.'
   },
-  'DIP_Practical_Questions_and_Code.pdf': {
-    title: 'Complete Printable PDF Lab Manual',
-    desc: 'Complete printable manual containing all 25 syllabus questions, objectives, clean Python code, and expected outputs.',
-    expected: 'Ready-to-print A4 PDF document for lab exams and study.'
-  },
-  'README.md': {
-    title: 'DIP Lab Documentation & Catalog',
-    desc: 'Master README index, setup instructions, quick start guide, test image documentation, and practical program catalog.',
-    expected: 'Markdown documentation file.'
-  },
   'requirements.txt': {
     title: 'Python Dependencies',
     desc: 'Python package requirements file specifying opencv-python, numpy, and matplotlib.',
@@ -226,7 +216,7 @@ const topics = {
   },
   'dip_practical_programs.zip': {
     title: 'All-in-One DIP ZIP Bundle',
-    desc: 'Complete downloadable archive containing all 25 practical programs, input test images, PDF manual, setup script, and documentation.',
+    desc: 'Complete downloadable archive containing all 25 practical programs, input test images, setup script, and documentation.',
     expected: 'Compressed ZIP archive.'
   }
 };
@@ -325,7 +315,7 @@ const html = `<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Roji • Digital Image Processing (DIP) Lab | Salvin Sebastian</title>
-  <meta name="description" content="Browse, preview, and download all 25 Digital Image Processing practical programs, complete printable A4 PDF manual, test images, and exam solutions.">
+  <meta name="description" content="Browse, preview, and download all 25 Digital Image Processing practical programs, genuine Python implementations, test images, and exam solutions.">
   <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -930,9 +920,6 @@ const html = `<!DOCTYPE html>
         <span class="current-badge">📁 roji</span>
       </div>
       <div class="nav-actions">
-        <a href="/roji/DIP_Practical_Questions_and_Code.pdf" target="_blank" class="btn btn-ghost">
-          📕 PDF Manual
-        </a>
         <a href="/roji/dip_practical_programs.zip" download class="btn btn-primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Download ZIP
@@ -950,7 +937,7 @@ const html = `<!DOCTYPE html>
       </div>
       <h1 class="hero-title">Digital Image Processing <span>Lab Hub</span></h1>
       <p class="hero-desc">
-        Complete collection of all 25 practical programs, genuine exam-ready Python implementations, expected outputs, complete printable A4 PDF manual, and input test images.
+        Complete collection of all 25 practical programs, genuine exam-ready Python implementations, expected outputs, and input test images.
       </p>
 
       <div class="stats-row">
@@ -963,8 +950,8 @@ const html = `<!DOCTYPE html>
           <span>Syllabus Questions</span>
         </div>
         <div class="stat-pill">
-          <strong>A4 PDF</strong>
-          <span>Printable Manual</span>
+          <strong>Exam Ready</strong>
+          <span>Lab Solutions</span>
         </div>
         <div class="stat-pill">
           <strong>100%</strong>
@@ -976,10 +963,6 @@ const html = `<!DOCTYPE html>
         <a href="https://colab.research.google.com/drive/1y1l0ZW1dSomURpR7ua82RdYiO66fxsO8" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
           Open Google Colab
-        </a>
-        <a href="/roji/DIP_Practical_Questions_and_Code.pdf" target="_blank" class="btn btn-ghost">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          Open PDF Manual
         </a>
         <a href="/roji/dip_practical_programs.zip" download class="btn btn-ghost">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -997,7 +980,7 @@ const html = `<!DOCTYPE html>
       <div class="controls-top">
         <div class="search-box">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search by name, question #, topic (e.g. 'fourier', 'sobel', 'histogram', '05', '.pdf')... [/]" autocomplete="off">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by name, question #, topic (e.g. 'fourier', 'sobel', 'histogram', '05')... [/]" autocomplete="off">
           <button id="searchClear" class="search-clear">✕</button>
         </div>
         <div class="filter-tabs">
